@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="godsoft.com.cmm.service.impl.CmmUseMapper">
+
+	<!-- <select id="selectCmmCodeDetail" parameterType="egovframework.com.cmm.ComDefaultCodeVO" -->
+	<!-- resultType="egovframework.com.cmm.service.CmmnDetailCode"> -->
+	<select id="selectCmmCodeDetail" parameterType="comDefaultCodeVO"
+		resultType="cmmnDetailCode">
+		<![CDATA[ 
+/*
+kosii.com.cmm.mapper.KosiiComCmmUseMapper.selectCmmCodeDetail
+*/
+select 
+	CODE_ID as codeId
+	, CODE
+	, CODE_NM as codeNm
+	, CODE_DC as codeDc
+from
+	COMTCCMMNDETAILCODE
+WHERE
+	USE_AT = 'Y'
+	and CODE_ID = #{codeId}
+order by
+	CODE_DC
+		]]>
+	</select>
+
+</mapper>
