@@ -1,14 +1,13 @@
 package godsoft.com;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class GodsoftComTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		// fail("Not yet implemented");
+		System.out.println("이백행");
 	}
 
 }
