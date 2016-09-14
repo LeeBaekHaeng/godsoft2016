@@ -17,8 +17,13 @@ public class ComTcAdministCodeTest {
 
 	/**
 	 * https://code.mogaha.go.kr/jsp/index.jsp
+	 * https://www.code.go.kr/jsp/index.jsp
 	 * 
 	 * 행정표준코드관리시스템 > 법정동 > 법정동코드 전체자료
+	 *
+	 * <pre>
+	 * sqlplus test/test@localhost:1521/orcl "@C:\Users\godsoft\Downloads\법정동코드 전체자료\법정동코드 전체자료-20160914170339.sql"
+	 * </pre>
 	 * 
 	 * @throws Exception
 	 */
