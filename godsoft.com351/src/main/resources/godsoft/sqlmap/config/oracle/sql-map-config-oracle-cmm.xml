@@ -5,5 +5,13 @@
 <sqlMapConfig>
 
 	<sqlMap resource="godsoft/sqlmap/com/cmm/AdministCode_SQL_Oracle.xml" />
+	<sqlMap
+		resource="godsoft/sqlmap/com/cmm/AdministCode-selectSidoList_SQL_Oracle.xml" />
+	<sqlMap
+		resource="godsoft/sqlmap/com/cmm/AdministCode-selectSggList_SQL_Oracle.xml" />
+	<sqlMap
+		resource="godsoft/sqlmap/com/cmm/AdministCode-selectUmdList_SQL_Oracle.xml" />
+	<sqlMap
+		resource="godsoft/sqlmap/com/cmm/AdministCode-selectRiList_SQL_Oracle.xml" />
 
 </sqlMapConfig>

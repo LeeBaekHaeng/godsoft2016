@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="AdministCodeDAO">
+
+	<select id="AdministCodeDAO.selectSidoList" parameterClass="map"
+		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+<![CDATA[
+select
+    COMTCADMINISTCODE.ADMINIST_ZONE_SE /* 행정코드.행정구역구분 */
+    , COMTCADMINISTCODE.ADMINIST_ZONE_CODE /* 행정코드.행정구역코드 */
+    , substr(COMTCADMINISTCODE.ADMINIST_ZONE_CODE, 1, 2) as sido_cd /* 행정코드.행정구역코드 시도코드 */
+    , substr(COMTCADMINISTCODE.ADMINIST_ZONE_CODE, 3, 3) as sgg_cd /* 행정코드.행정구역코드 시군구코드 */
+    , substr(COMTCADMINISTCODE.ADMINIST_ZONE_CODE, 6, 3) as umd_cd /* 행정코드.행정구역코드 읍면동코드 */
+    , substr(COMTCADMINISTCODE.ADMINIST_ZONE_CODE, 9) as ri_cd /* 행정코드.행정구역코드 리코드 */
+    , COMTCADMINISTCODE.USE_AT /* 행정코드.사용여부 */
+    , COMTCADMINISTCODE.ADMINIST_ZONE_NM /* 행정코드.행정구역명 */
+    , COMTCADMINISTCODE.UPPER_ADMINIST_ZONE_CODE /* 행정코드.상위행정구역코드 */
+    , COMTCADMINISTCODE.CREAT_DE /* 행정코드.생성일 */
+    , COMTCADMINISTCODE.ABL_DE /* 행정코드.폐지일 */
+    , COMTCADMINISTCODE.FRST_REGIST_PNTTM /* 행정코드.최초등록시점 */
+    , COMTCADMINISTCODE.FRST_REGISTER_ID /* 행정코드.최초등록자ID */
+    , COMTCADMINISTCODE.LAST_UPDT_PNTTM /* 행정코드.최종수정시점 */
+    , COMTCADMINISTCODE.LAST_UPDUSR_ID /* 행정코드.최종수정자ID */
+from COMTCADMINISTCODE /* 행정코드 */
+where 1 = 1
+    and COMTCADMINISTCODE.ADMINIST_ZONE_SE = '1' /* 행정코드.행정구역구분 = 법정동 */
+    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '__00000000' /* 행정코드.행정구역코드 시도 2 */
+    and COMTCADMINISTCODE.USE_AT = 'Y' /* 행정코드.사용여부 */
+order by
+    COMTCADMINISTCODE.ADMINIST_ZONE_CODE /* 행정코드.행정구역코드 */
+]]>
+	</select>
+
+</sqlMap>
