@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -16,9 +18,10 @@ import egovframework.rte.fdl.excel.EgovExcelService;
 import egovframework.rte.fdl.excel.util.EgovExcelUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {
-		"classpath:egovframework/spring/com/**/context-*.xml",
-		"classpath:godsoft/spring/com/**/context-*.xml" })
+// @ContextConfiguration(locations = {
+// "classpath:egovframework/spring/com/**/context-*.xml",
+// "classpath:godsoft/spring/com/**/context-*.xml" })
+@ContextConfiguration(locations = { "classpath:godsoft/spring/com/context-excel.xml" })
 public class Code01Test {
 
 	protected Logger egovLogger = LoggerFactory.getLogger(getClass());
@@ -28,14 +31,28 @@ public class Code01Test {
 
 	@Test
 	public void test() throws Exception {
+		// classPathResource();
 		test2();
+	}
+
+	public void classPathResource() throws Exception {
+		Resource resource = new ClassPathResource(
+				"godsoft/excel/com/GOD_D08_코드정의서_V1.0_20160830.xlsx");
+
+		if (egovLogger.isDebugEnabled()) {
+			egovLogger.debug("resource=" + resource);
+			egovLogger.debug("resource="
+					+ resource.getFile().getCanonicalPath());
+		}
 	}
 
 	public void test2() throws Exception {
 		if (egovLogger.isDebugEnabled()) {
 			egovLogger.debug("test2");
 
-			String filepath = "C:/Users/LeeBaekHaeng/git/egov/godsoft.com351/src/test/resources/godsoft/com/GOD_D08_코드정의서_V1.0_20160830.xlsx";
+			String filepath = new ClassPathResource(
+					"godsoft/excel/com/GOD_D08_코드정의서_V1.0_20160830.xlsx")
+					.getFile().getCanonicalPath();
 			XSSFWorkbook type = null;
 
 			XSSFWorkbook loadWorkbook = egovExcelService.loadWorkbook(filepath,
@@ -146,5 +163,5 @@ public class Code01Test {
 
 		System.out.println(sb);
 	}
-	
+
 }
