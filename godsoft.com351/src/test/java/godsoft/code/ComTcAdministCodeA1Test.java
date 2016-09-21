@@ -26,7 +26,11 @@ public class ComTcAdministCodeA1Test {
 
 	/**
 	 * <pre>
-	 * sqlplus test/test@localhost:1521/orcl "@C:\Users\LeeBaekHaeng\Downloads\주민등록주소코드 변경내역(2016. 9. 5. 현재)\jscode20160905\KIKcd_B.20160905-20160917080445.sql"
+	 * http://www.moi.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000052
+	 * http://www.moi.go.kr/frt/bbs/type001/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=55940
+	 * jscode20160905.zip
+	 * 
+	 * sqlplus test/test@localhost:1521/orcl "@C:\Users\LeeBaekHaeng\Downloads\jscode20160905\KIKcd_B.20160905-20160917080445.sql"
 	 * </pre>
 	 * 
 	 * @throws Exception
@@ -34,7 +38,7 @@ public class ComTcAdministCodeA1Test {
 	@Test
 	public void test() throws Exception {
 		String filepath = SystemUtils.USER_HOME
-				+ "/Downloads/주민등록주소코드 변경내역(2016. 9. 5. 현재)/jscode20160905/KIKcd_B.20160905.xlsx";
+				+ "/Downloads/jscode20160905/KIKcd_B.20160905.xlsx";
 		XSSFWorkbook type = null;
 
 		XSSFWorkbook wb = egovExcelService.loadWorkbook(filepath, type);
