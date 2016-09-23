@@ -26,6 +26,8 @@ public class InsttCodeRecptnDAOTest {
 	 * 기관코드
 	 * 
 	 * <pre>
+	 * -Xms2048m -Xmx2048m
+	 * 
 	 * alter table TELNO VARCHAR2(200);
 	 * alter table FXNUM VARCHAR2(200);
 	 * </pre>
@@ -163,7 +165,7 @@ public class InsttCodeRecptnDAOTest {
 			// insttCodeRecptn.setChangede(changede);
 
 			sb.append("INSERT INTO COMTNINSTTCODE");
-			sb.append("(INSTT_CODE");
+			sb.append(" (INSTT_CODE");
 			sb.append(", ALL_INSTT_NM");
 			sb.append(", LOWEST_INSTT_NM");
 			sb.append(", INSTT_ABRV_NM");
@@ -189,9 +191,9 @@ public class InsttCodeRecptnDAOTest {
 			sb.append(", FRST_REGIST_PNTTM");
 			sb.append(", LAST_UPDUSR_ID");
 			sb.append(", LAST_UPDT_PNTTM");
-			sb.append(")");
-			sb.append("VALUES");
-			sb.append("( '" + insttCode + "'"); // insttCode
+			sb.append(") VALUES (");
+			sb.append("");
+			sb.append("'" + insttCode + "'"); // insttCode
 			sb.append(", '" + allInsttNm + "'"); // allInsttNm
 			sb.append(", '" + lowestInsttNm + "'"); // lowestInsttNm
 			sb.append(", '" + insttAbrvNm + "'"); // insttAbrvNm
@@ -269,6 +271,8 @@ public class InsttCodeRecptnDAOTest {
 		String data = sb.toString();
 		String encoding = "ms949";
 		FileUtils.writeStringToFile(file, data, encoding);
+
+		System.out.println(file.getCanonicalPath());
 	}
 
 }
