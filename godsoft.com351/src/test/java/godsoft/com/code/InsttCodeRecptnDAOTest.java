@@ -196,7 +196,8 @@ public class InsttCodeRecptnDAOTest {
 			sb.append("'" + insttCode + "'"); // insttCode
 			sb.append(", '" + allInsttNm + "'"); // allInsttNm
 			sb.append(", '" + lowestInsttNm + "'"); // lowestInsttNm
-			sb.append(", '" + insttAbrvNm + "'"); // insttAbrvNm
+			// sb.append(", '" + insttAbrvNm + "'"); // insttAbrvNm
+			sb.append(", null"); // insttAbrvNm
 			sb.append(", '" + odr + "'"); // odr
 			sb.append(", '" + ord + "'"); // ord
 			sb.append(", '" + insttOdr + "'"); // insttOdr
@@ -265,9 +266,11 @@ public class InsttCodeRecptnDAOTest {
 
 		System.out.println(sb);
 
-		File file = new File(pathname.replaceAll(".txt",
-				EgovDateUtil.toString(new Date(), "yyyy-MM-dd HH-mm-ss", null)
-						+ ".sql"));
+		File file = new File(pathname.replaceAll(
+				".txt",
+				" "
+						+ EgovDateUtil.toString(new Date(),
+								"yyyy-MM-dd HH-mm-ss", null) + ".sql"));
 		String data = sb.toString();
 		String encoding = "ms949";
 		FileUtils.writeStringToFile(file, data, encoding);
