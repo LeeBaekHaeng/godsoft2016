@@ -67,15 +67,20 @@ from COMTCADMINISTCODE /* 青沥内靛 */
 where 1 = 1
     and COMTCADMINISTCODE.ADMINIST_ZONE_SE = '1' /* 青沥内靛.青沥备开备盒 = 过沥悼 */
 --    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '__00000000' /* 青沥内靛.青沥备开内靛 矫档 2 */
---    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '____000000' /* 青沥内靛.青沥备开内靛 矫焙备 3 */
+    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '_____00000' /* 青沥内靛.青沥备开内靛 矫焙备 3 */
 --    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '_______000' /* 青沥内靛.青沥备开内靛 谰搁悼 3 */
-    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '__________' /* 青沥内靛.青沥备开内靛 府 2 */
+--    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '__________' /* 青沥内靛.青沥备开内靛 府 2 */
     and COMTCADMINISTCODE.USE_AT = 'Y' /* 青沥内靛.荤侩咯何 */
 --    and COMTCADMINISTCODE.ADMINIST_ZONE_NM like '%府' /* 青沥内靛.青沥备开疙 */
 --    and COMTCADMINISTCODE.ADMINIST_ZONE_NM like '%牢悼%' /* 青沥内靛.青沥备开疙 */
-    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '30110%' /* 青沥内靛.青沥备开内靛 矫档 2 */
+--    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '30%' /* 青沥内靛.青沥备开内靛 矫档 措傈 */
+--    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE != '30' || '00000000' /* 青沥内靛.青沥备开内靛 矫档 措傈 */
+--
+    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE like '43' || '%' /* 青沥内靛.青沥备开内靛 矫档 面没合档 */
+    and COMTCADMINISTCODE.ADMINIST_ZONE_CODE != '43' || '00000000' /* 青沥内靛.青沥备开内靛 矫档 面没合档 */
 order by
-    COMTCADMINISTCODE.ADMINIST_ZONE_CODE /* 青沥内靛.青沥备开内靛 */
+--    COMTCADMINISTCODE.ADMINIST_ZONE_CODE /* 青沥内靛.青沥备开内靛 */
+    COMTCADMINISTCODE.ADMINIST_ZONE_NM /* 青沥内靛.青沥备开疙 */
 ;
 
 select
