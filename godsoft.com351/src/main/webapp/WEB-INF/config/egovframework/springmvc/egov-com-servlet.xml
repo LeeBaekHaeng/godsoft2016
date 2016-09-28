@@ -60,4 +60,6 @@
 
 	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean>
 
+	<bean class="godsoft.com.cmm.web.GodsoftExcelView"></bean>
+
 </beans>
