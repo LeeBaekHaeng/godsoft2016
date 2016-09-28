@@ -10,19 +10,19 @@
 <body>
 
 	<select id="sidoCd">
-		<option value="">시도 선택</option>
+		<option value="">시도</option>
 	</select>
 
 	<select id="sggCd">
-		<option value="">시군구 선택</option>
+		<option value="">시군구</option>
 	</select>
 
 	<select id="umdCd">
-		<option value="">읍면동 선택</option>
+		<option value="">읍면동</option>
 	</select>
 
 	<select id="riCd">
-		<option value="">리 선택</option>
+		<option value="">리</option>
 	</select>
 
 	<script type="text/javascript"
@@ -37,15 +37,15 @@
 			$("#sidoCd").on({
 				"change" : function() {
 					fn_godsoft_sgg();
-					$("#umdCd").html('<option value="">읍면동 선택</option>');
-					$("#riCd").html('<option value="">리 선택</option>');
+					$("#umdCd").html('<option value="">읍면동</option>');
+					$("#riCd").html('<option value="">리</option>');
 				}
 			});
 
 			$("#sggCd").on({
 				"change" : function() {
 					fn_godsoft_umd();
-					$("#riCd").html('<option value="">리 선택</option>');
+					$("#riCd").html('<option value="">리</option>');
 				}
 			});
 
@@ -65,7 +65,7 @@
 			$.post(url, data, success, dataType);
 
 			function success(data, textStatus, jqXHR) {
-				var html = '<option value="">시도 선택</option>';
+				var html = '<option value="">시도</option>';
 
 				var length = data.items.length;
 
@@ -91,7 +91,7 @@
 			$.post(url, data, success, dataType);
 
 			function success(data, textStatus, jqXHR) {
-				var html = '<option value="">시군구 선택</option>';
+				var html = '<option value="">시군구</option>';
 
 				var length = data.items.length;
 
@@ -121,7 +121,7 @@
 			$.post(url, data, success, dataType);
 
 			function success(data, textStatus, jqXHR) {
-				var html = '<option value="">읍면동 선택</option>';
+				var html = '<option value="">읍면동</option>';
 
 				var length = data.items.length;
 
@@ -154,7 +154,7 @@
 			$.post(url, data, success, dataType);
 
 			function success(data, textStatus, jqXHR) {
-				var html = '<option value="">리 선택</option>';
+				var html = '<option value="">리</option>';
 
 				var length = data.items.length;
 
