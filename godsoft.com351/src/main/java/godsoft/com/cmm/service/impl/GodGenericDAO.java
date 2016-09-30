@@ -55,7 +55,7 @@ public class GodGenericDAO<PVO, SVO, LVO> extends EgovComAbstractDAO {
 	}
 
 	public int selectListCount(PVO vo) throws Exception {
-		return (Integer) select(queryId.get("selectListCount"), vo);
+		return (int) select(queryId.get("selectListCount"), vo);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -64,7 +64,7 @@ public class GodGenericDAO<PVO, SVO, LVO> extends EgovComAbstractDAO {
 	}
 
 	public int selectListCount2(PVO vo) throws Exception {
-		return (Integer) select(queryId.get("selectListCount2"), vo);
+		return (int) select(queryId.get("selectListCount2"), vo);
 	}
 
 	public int update(PVO vo) throws Exception {

@@ -24,13 +24,19 @@ public class Sub0101DAOTest {
 	public void test() throws Exception {
 		Sub0101VO vo = new Sub0101VO();
 
-		vo.setCodeId("COM001");
+		// vo.setCodeId("COM001");
 
 		vo.setUseAt("Y");
 
+		vo.setFirstIndex(0);
+		// vo.setRecordCountPerPage(10);
+		vo.setRecordCountPerPage(Integer.MAX_VALUE);
+
 		List<EgovMap> items = Sub0101DAO.selectList(vo);
+		int cnt = Sub0101DAO.selectListCount(vo);
 
 		System.out.println("items=" + items);
+		System.out.println("cnt=" + cnt);
 
 		for (EgovMap item : items) {
 			System.out.println("item=" + item);

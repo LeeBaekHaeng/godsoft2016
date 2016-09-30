@@ -9,19 +9,24 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class Sub0101DAO extends
-		GodGenericDAO<Sub0101VO, Sub0101VO, EgovMap> {
+public class Sub0101DAO extends GodGenericDAO<Sub0101VO, Sub0101VO, EgovMap> {
 
 	@Override
 	public void postConstruct() {
 		super.postConstruct();
 
 		queryId.put("selectList", "Sub0101DAO.selectList");
+		queryId.put("selectListCount", "Sub0101DAO.selectListCount");
 	}
 
 	@Override
 	public List<EgovMap> selectList(Sub0101VO vo) throws Exception {
 		return super.selectList(vo);
+	}
+
+	@Override
+	public int selectListCount(Sub0101VO vo) throws Exception {
+		return super.selectListCount(vo);
 	}
 
 }

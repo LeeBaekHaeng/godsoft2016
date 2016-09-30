@@ -3,19 +3,8 @@
 
 <sqlMap namespace="Sub0101DAO">
 
-	<select id="Sub0101DAO.selectList" parameterClass="godsoft.com.sub.service.Sub0101VO"
-		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+	<sql id="Sub0101DAO.selectList.from.where">
 <![CDATA[
-select
-    COMTCCMMNDETAILCODE.CODE_ID /* 공통상세코드.코드ID */
-    , COMTCCMMNDETAILCODE.CODE /* 공통상세코드.코드 */
-    , COMTCCMMNDETAILCODE.CODE_NM /* 공통상세코드.코드명 */
-    , COMTCCMMNDETAILCODE.CODE_DC /* 공통상세코드.코드설명 */
-    , COMTCCMMNDETAILCODE.USE_AT /* 공통상세코드.사용여부 */
-    , COMTCCMMNDETAILCODE.FRST_REGIST_PNTTM /* 공통상세코드.최초등록시점 */
-    , COMTCCMMNDETAILCODE.FRST_REGISTER_ID /* 공통상세코드.최초등록자ID */
-    , COMTCCMMNDETAILCODE.LAST_UPDT_PNTTM /* 공통상세코드.최종수정시점 */
-    , COMTCCMMNDETAILCODE.LAST_UPDUSR_ID /* 공통상세코드.최종수정자ID */
 from COMTCCMMNDETAILCODE /* 공통상세코드 */
 where 1 = 1
 ]]>
@@ -31,7 +20,47 @@ where 1 = 1
     and COMTCCMMNDETAILCODE.USE_AT = #useAt# /* 공통상세코드.사용여부 */
 ]]>
 		</isNotEmpty>
+	</sql>
 
+	<select id="Sub0101DAO.selectList" parameterClass="godsoft.com.sub.service.Sub0101VO"
+		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+<![CDATA[
+select
+    CODE_ID /* 공통상세코드.코드ID */
+    , (select CODE_ID_NM from COMTCCMMNCODE where COMTCCMMNCODE.CODE_ID = a.CODE_ID) as CODE_ID_NM
+    , CODE /* 공통상세코드.코드 */
+    , CODE_NM /* 공통상세코드.코드명 */
+    , CODE_DC /* 공통상세코드.코드설명 */
+    , USE_AT /* 공통상세코드.사용여부 */
+    , FRST_REGIST_PNTTM /* 공통상세코드.최초등록시점 */
+    , FRST_REGISTER_ID /* 공통상세코드.최초등록자ID */
+    , LAST_UPDT_PNTTM /* 공통상세코드.최종수정시점 */
+    , LAST_UPDUSR_ID /* 공통상세코드.최종수정자ID */
+from (select rownum rn, tb.* from (
+select
+    COMTCCMMNDETAILCODE.CODE_ID /* 공통상세코드.코드ID */
+    , COMTCCMMNDETAILCODE.CODE /* 공통상세코드.코드 */
+    , COMTCCMMNDETAILCODE.CODE_NM /* 공통상세코드.코드명 */
+    , COMTCCMMNDETAILCODE.CODE_DC /* 공통상세코드.코드설명 */
+    , COMTCCMMNDETAILCODE.USE_AT /* 공통상세코드.사용여부 */
+    , COMTCCMMNDETAILCODE.FRST_REGIST_PNTTM /* 공통상세코드.최초등록시점 */
+    , COMTCCMMNDETAILCODE.FRST_REGISTER_ID /* 공통상세코드.최초등록자ID */
+    , COMTCCMMNDETAILCODE.LAST_UPDT_PNTTM /* 공통상세코드.최종수정시점 */
+    , COMTCCMMNDETAILCODE.LAST_UPDUSR_ID /* 공통상세코드.최종수정자ID */
+]]>
+		<include refid="Sub0101DAO.selectList.from.where" />
+<![CDATA[
+) tb) a where rn between #firstIndex# + 1 and #firstIndex# + #recordCountPerPage#
+]]>
+	</select>
+
+	<select id="Sub0101DAO.selectListCount" parameterClass="godsoft.com.sub.service.Sub0101VO"
+		resultClass="int">
+<![CDATA[
+select
+    count(*) as cnt
+]]>
+		<include refid="Sub0101DAO.selectList.from.where" />
 	</select>
 
 </sqlMap>
