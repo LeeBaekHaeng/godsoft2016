@@ -6,7 +6,7 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class GodsoftUtils {
+public class GodUtils {
 
 	/**
 	 * 브라우저 구분 얻기.

@@ -15,11 +15,15 @@ import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
  * 
  * @author 이백행<dlqorgod@naver.com>
  *
- * @param <T1>
- * @param <T2>
+ * @param <PVO>
+ *            파라미터 VO
+ * @param <SVO>
+ *            조회(단건) 리턴 VO
+ * @param <LVO>
+ *            조회(멀티건) 리턴 VO
  */
 @Repository
-public class GodsoftGenericDAO<T1, T2> extends EgovComAbstractDAO {
+public class GodGenericDAO<PVO, SVO, LVO> extends EgovComAbstractDAO {
 
 	protected Map<String, String> queryId = new HashMap<String, String>();
 
@@ -27,71 +31,71 @@ public class GodsoftGenericDAO<T1, T2> extends EgovComAbstractDAO {
 	public void postConstruct() {
 	}
 
-	public Object insert(T1 vo) throws Exception {
+	public Object insert(PVO vo) throws Exception {
 		return insert(queryId.get("insert"), vo);
 	}
 
-	public Object insert2(T1 vo) throws Exception {
+	public Object insert2(PVO vo) throws Exception {
 		return insert(queryId.get("insert2"), vo);
 	}
 
 	@SuppressWarnings("unchecked")
-	public T2 select(T1 vo) throws Exception {
-		return (T2) select(queryId.get("select"), vo);
+	public SVO select(PVO vo) throws Exception {
+		return (SVO) select(queryId.get("select"), vo);
 	}
 
 	@SuppressWarnings("unchecked")
-	public T2 select2(T1 vo) throws Exception {
-		return (T2) select(queryId.get("select2"), vo);
+	public SVO select2(PVO vo) throws Exception {
+		return (SVO) select(queryId.get("select2"), vo);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T2> selectList(T1 vo) throws Exception {
-		return (List<T2>) list(queryId.get("selectList"), vo);
+	public List<LVO> selectList(PVO vo) throws Exception {
+		return (List<LVO>) list(queryId.get("selectList"), vo);
 	}
 
-	public int selectListCount(T1 vo) throws Exception {
+	public int selectListCount(PVO vo) throws Exception {
 		return (Integer) select(queryId.get("selectListCount"), vo);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T2> selectList2(T1 vo) throws Exception {
-		return (List<T2>) list(queryId.get("selectList2"), vo);
+	public List<LVO> selectList2(PVO vo) throws Exception {
+		return (List<LVO>) list(queryId.get("selectList2"), vo);
 	}
 
-	public int selectListCount2(T1 vo) throws Exception {
+	public int selectListCount2(PVO vo) throws Exception {
 		return (Integer) select(queryId.get("selectListCount2"), vo);
 	}
 
-	public int update(T1 vo) throws Exception {
+	public int update(PVO vo) throws Exception {
 		return update(queryId.get("update"), vo);
 	}
 
-	public int update2(T1 vo) throws Exception {
+	public int update2(PVO vo) throws Exception {
 		return update(queryId.get("update2"), vo);
 	}
 
-	public int delete(T1 vo) throws Exception {
+	public int delete(PVO vo) throws Exception {
 		return delete(queryId.get("delete"), vo);
 	}
 
-	public int delete2(T1 vo) throws Exception {
+	public int delete2(PVO vo) throws Exception {
 		return delete(queryId.get("delete2"), vo);
 	}
 
-	public int merge(T1 vo) throws Exception {
+	public int merge(PVO vo) throws Exception {
 		return update(queryId.get("merge"), vo);
 	}
 
-	public int merge2(T1 vo) throws Exception {
+	public int merge2(PVO vo) throws Exception {
 		return update(queryId.get("merge2"), vo);
 	}
 
-	public int multi(T1 vo) throws Exception {
+	public int multi(PVO vo) throws Exception {
 		return update(queryId.get("multi"), vo);
 	}
 
-	public int multi2(T1 vo) throws Exception {
+	public int multi2(PVO vo) throws Exception {
 		return update(queryId.get("multi2"), vo);
 	}
 

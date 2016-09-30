@@ -9,7 +9,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 @Repository
 public class GodsoftAdministCodeDAO extends
-		GodsoftGenericDAO<Map<String, Object>, EgovMap> {
+		GodGenericDAO<Map<String, Object>, EgovMap, EgovMap> {
 
 	@Override
 	public void postConstruct() {

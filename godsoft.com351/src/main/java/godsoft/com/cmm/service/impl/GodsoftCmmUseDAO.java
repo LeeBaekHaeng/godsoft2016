@@ -9,7 +9,7 @@ import egovframework.com.cmm.service.CmmnDetailCode;
 
 @Repository
 public class GodsoftCmmUseDAO extends
-		GodsoftGenericDAO<ComDefaultCodeVO, CmmnDetailCode> {
+		GodGenericDAO<ComDefaultCodeVO, CmmnDetailCode, CmmnDetailCode> {
 
 	@Override
 	public void postConstruct() {

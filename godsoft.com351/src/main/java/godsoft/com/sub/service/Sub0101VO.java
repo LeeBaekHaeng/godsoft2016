@@ -11,4 +11,24 @@ import egovframework.com.cmm.ComDefaultVO;
 @SuppressWarnings("serial")
 public class Sub0101VO extends ComDefaultVO {
 
+	private String codeId;
+
+	private String useAt;
+
+	public String getCodeId() {
+		return codeId;
+	}
+
+	public void setCodeId(String codeId) {
+		this.codeId = codeId;
+	}
+
+	public String getUseAt() {
+		return useAt;
+	}
+
+	public void setUseAt(String useAt) {
+		this.useAt = useAt;
+	}
+
 }

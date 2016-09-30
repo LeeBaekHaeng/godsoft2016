@@ -1,6 +1,6 @@
 package godsoft.com.cmm.web;
 
-import godsoft.com.cmm.util.GodsoftUtils;
+import godsoft.com.cmm.util.GodUtils;
 
 import java.util.Map;
 
@@ -30,7 +30,7 @@ public class GodsoftExcelView extends AbstractExcelView {
 			HttpServletResponse response) throws Exception {
 		// filename
 		String filename = (String) model.get("filename");
-		GodsoftUtils.setDisposition(filename, request, response);
+		GodUtils.setDisposition(filename, request, response);
 
 		// jxls
 		XLSTransformer transformer = new XLSTransformer();
