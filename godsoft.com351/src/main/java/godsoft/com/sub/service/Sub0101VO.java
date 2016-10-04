@@ -16,6 +16,8 @@ public class Sub0101VO extends ComDefaultVO {
 	 */
 	private String codeId;
 
+	private String code;
+
 	/**
 	 * COMTCCMMNDETAILCODE.USE_AT 공통상세코드.사용여부
 	 */
@@ -37,6 +39,14 @@ public class Sub0101VO extends ComDefaultVO {
 	 */
 	public void setCodeId(String codeId) {
 		this.codeId = codeId;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	/**

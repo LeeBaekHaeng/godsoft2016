@@ -22,9 +22,33 @@ public class Sub0101DAOTest {
 
 	@Test
 	public void test() throws Exception {
+		select();
+		// selectList();
+	}
+
+	public void select() throws Exception {
 		Sub0101VO vo = new Sub0101VO();
 
-		// vo.setCodeId("COM001");
+		vo.setCodeId("COM001");
+		// vo.setCode("REGC01");
+
+		vo.setUseAt("Y");
+
+		Sub0101VO item = Sub0101DAO.selectForObject(vo);
+
+		System.out.println("item=" + item);
+
+		if (item != null) {
+			System.out.println("getCodeId=" + item.getCodeId());
+			System.out.println("getCode" + item.getCode());
+			System.out.println("getUseAt=" + item.getUseAt());
+		}
+	}
+
+	public void selectList() throws Exception {
+		Sub0101VO vo = new Sub0101VO();
+
+		vo.setCodeId("COM001");
 
 		vo.setUseAt("Y");
 

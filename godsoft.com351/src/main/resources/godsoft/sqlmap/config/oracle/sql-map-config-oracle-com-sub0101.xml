@@ -4,6 +4,7 @@
 
 <sqlMapConfig>
 
+	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0101DAO-select_SQL_Oracle.xml" />
 	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0101DAO-selectList_SQL_Oracle.xml" />
 
 </sqlMapConfig>
