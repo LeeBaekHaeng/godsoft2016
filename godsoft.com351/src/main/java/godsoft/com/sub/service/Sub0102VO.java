@@ -16,6 +16,8 @@ public class Sub0102VO extends ComDefaultVO {
 	 */
 	private String codeId;
 
+	private String codeNm;
+
 	/**
 	 * COMTCCMMNDETAILCODE.USE_AT 공통상세코드.사용여부
 	 */
@@ -37,6 +39,21 @@ public class Sub0102VO extends ComDefaultVO {
 	 */
 	public void setCodeId(String codeId) {
 		this.codeId = codeId;
+	}
+
+	/**
+	 * @return the codeNm
+	 */
+	public String getCodeNm() {
+		return codeNm;
+	}
+
+	/**
+	 * @param codeNm
+	 *            the codeNm to set
+	 */
+	public void setCodeNm(String codeNm) {
+		this.codeNm = codeNm;
 	}
 
 	/**

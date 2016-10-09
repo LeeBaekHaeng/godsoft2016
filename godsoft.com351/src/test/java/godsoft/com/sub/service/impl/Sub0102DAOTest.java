@@ -1,15 +1,17 @@
 package godsoft.com.sub.service.impl;
 
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.com.sub.service.Sub0102VO;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.com.sub.service.Sub0102VO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
@@ -22,7 +24,8 @@ public class Sub0102DAOTest {
 
 	@Test
 	public void test() throws Exception {
-		selectListMap();
+		// selectListMap();
+		selectListType();
 	}
 
 	public void selectListMap() throws Exception {
@@ -37,6 +40,47 @@ public class Sub0102DAOTest {
 		vo.setRecordCountPerPage(Integer.MAX_VALUE);
 
 		List<EgovMap> items = sub0102DAO.selectListMap(vo);
+
+		System.out.println("items=" + items);
+
+		for (EgovMap item : items) {
+			System.out.println("item=" + item);
+			System.out.println("item=" + item.get("codeId"));
+		}
+	}
+
+	public void selectListType() throws Exception {
+		Sub0102VO vo = new Sub0102VO();
+
+		vo.setCodeId("COM001");
+
+		vo.setUseAt("Y");
+
+		vo.setFirstIndex(0);
+		// vo.setRecordCountPerPage(10);
+		vo.setRecordCountPerPage(Integer.MAX_VALUE);
+
+		List<Sub0102VO> items = sub0102DAO.selectListType(vo);
+
+		System.out.println("items=" + items);
+
+		for (Sub0102VO item : items) {
+			System.out.println("item=" + item);
+			System.out.println("item=" + item.getCodeNm());
+		}
+	}
+
+	public void selectListMapForMap() throws Exception {
+		Map<String, Object> vo = new HashMap<String, Object>();
+
+		vo.put("codeId", "COM001");
+
+		vo.put("useAt", "Y");
+
+		vo.put("firstIndex", 0);
+		vo.put("recordCountPerPage", Integer.MAX_VALUE);
+
+		List<EgovMap> items = sub0102DAO.selectListMapForMap(vo);
 
 		System.out.println("items=" + items);
 

@@ -24,15 +24,12 @@ public class GodEgovAbstractDAO<T> extends EgovComAbstractDAO {
 
 	protected Map<String, String> queryId = new HashMap<String, String>();
 
-	protected String queryIdPrefix;
-
 	@PostConstruct
 	public void postConstruct() {
-		queryId.put("selectList", queryIdPrefix + ".selectList");
 	}
 
 	public Object insert(T vo) throws Exception {
-		return insert(queryIdPrefix + ".insert", vo);
+		return insert(queryId.get("insert"), vo);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -42,12 +39,18 @@ public class GodEgovAbstractDAO<T> extends EgovComAbstractDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<EgovMap> selectListMap(T vo) throws Exception {
-		return (List<EgovMap>) list(queryId.get("selectList"), vo);
+		return (List<EgovMap>) list(queryId.get("selectListMap"), vo);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<T> selectListType(T vo) throws Exception {
-		return (List<T>) list(queryId.get("selectList"), vo);
+		return (List<T>) list(queryId.get("selectListType"), vo);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<EgovMap> selectListMapForMap(Map<String, Object> vo)
+			throws Exception {
+		return (List<EgovMap>) list(queryId.get("selectListMapForMap"), vo);
 	}
 
 	public int selectListCount(T vo) throws Exception {
