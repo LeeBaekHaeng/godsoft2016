@@ -9,6 +9,8 @@ import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -19,13 +21,38 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 		"classpath:godsoft/spring/com/**/context-*.xml" })
 public class Sub0102DAOTest {
 
+	// protected final Log logger = LogFactory.getLog(getClass());
+	protected Logger egovLogger = LoggerFactory.getLogger(getClass());
+
 	@Autowired
 	private Sub0102DAO sub0102DAO;
 
 	@Test
 	public void test() throws Exception {
+		selectList();
 		// selectListMap();
-		selectListType();
+		// selectListType();
+	}
+
+	public void selectList() throws Exception {
+		Sub0102VO vo = new Sub0102VO();
+
+		vo.setCodeId("COM001");
+
+		vo.setUseAt("Y");
+
+		vo.setFirstIndex(0);
+		// vo.setRecordCountPerPage(10);
+		vo.setRecordCountPerPage(Integer.MAX_VALUE);
+
+		List<EgovMap> items = sub0102DAO.selectList(vo);
+
+		egovLogger.debug("items=" + items);
+
+		for (EgovMap item : items) {
+			egovLogger.debug("item=" + item);
+			egovLogger.debug("item=" + item.get("codeId"));
+		}
 	}
 
 	public void selectListMap() throws Exception {

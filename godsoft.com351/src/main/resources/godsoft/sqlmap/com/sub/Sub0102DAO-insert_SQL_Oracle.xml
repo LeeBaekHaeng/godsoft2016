@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Sub0102DAO">
+
+	<sql id="Sub0102DAO.insert.sql">
+<![CDATA[
+/*
+서브0102 등록
+*/
+insert into COMTCCMMNDETAILCODE /* 공통상세코드 */ (
+    CODE_ID /* 코드ID */
+    , CODE /* 코드 */
+    , CODE_NM /* 코드명 */
+    , CODE_DC /* 코드설명 */
+    , USE_AT /* 사용여부 */
+    , FRST_REGIST_PNTTM /* 최초등록시점 */
+    , FRST_REGISTER_ID /* 최초등록자ID */
+    , LAST_UPDT_PNTTM /* 최종수정시점 */
+    , LAST_UPDUSR_ID /* 최종수정자ID */
+) values (
+    #codeId# /* 코드ID */
+    , #code# /* 코드 */
+    , #codeNm# /* 코드명 */
+    , #codeDc# /* 코드설명 */
+    , #useAt# /* 사용여부 */
+    , sysdate /* 최초등록시점 */
+    , #frstRegisterId# /* 최초등록자ID */
+    , #lastUpdtPnttm# /* 최종수정시점 */
+    , #lastUpdusrId# /* 최종수정자ID */
+)
+]]>
+	</sql>
+
+	<insert id="Sub0102DAO.insert" parameterClass="godsoft.com.sub.service.Sub0102VO">
+		<selectKey keyProperty="code" resultClass="string">
+<![CDATA[
+select
+    lpad(nvl(max(CODE), 0) + 1, 2, 0) as CODE /* 코드 */
+    , '코드명' || lpad(nvl(max(CODE), 0) + 1, 2, 0) as CODE_NM /* 코드명 */
+from COMTCCMMNDETAILCODE /* 공통상세코드 */
+where CODE_ID = #codeId# /* 코드ID */
+    and COMTCCMMNDETAILCODE.FRST_REGISTER_ID = 'SYSTEM2' /* 공통상세코드.최초등록자ID */
+]]>
+		</selectKey>
+
+		<include refid="Sub0102DAO.insert.sql" />
+	</insert>
+
+	<insert id="Sub0102DAO.insert2" parameterClass="godsoft.com.sub.service.Sub0102VO">
+		<selectKey keyProperty="sk" resultClass="godsoft.com.sub.service.Sub0102VO">
+<![CDATA[
+select
+    lpad(nvl(max(CODE), 0) + 1, 2, 0) as CODE /* 코드 */
+    , '코드명' || lpad(nvl(max(CODE), 0) + 1, 2, 0) as codeNm /* 코드명 */
+from COMTCCMMNDETAILCODE /* 공통상세코드 */
+where CODE_ID = #codeId# /* 코드ID */
+    and COMTCCMMNDETAILCODE.FRST_REGISTER_ID = 'SYSTEM2' /* 공통상세코드.최초등록자ID */
+]]>
+		</selectKey>
+
+<![CDATA[
+/*
+서브0102 등록
+*/
+insert into COMTCCMMNDETAILCODE /* 공통상세코드 */ (
+    CODE_ID /* 코드ID */
+    , CODE /* 코드 */
+    , CODE_NM /* 코드명 */
+    , CODE_DC /* 코드설명 */
+    , USE_AT /* 사용여부 */
+    , FRST_REGIST_PNTTM /* 최초등록시점 */
+    , FRST_REGISTER_ID /* 최초등록자ID */
+    , LAST_UPDT_PNTTM /* 최종수정시점 */
+    , LAST_UPDUSR_ID /* 최종수정자ID */
+) values (
+    #codeId# /* 코드ID */
+    , #sk.code# /* 코드 */
+    , #sk.codeNm# /* 코드명 */
+    , #codeDc# /* 코드설명 */
+    , #useAt# /* 사용여부 */
+    , sysdate /* 최초등록시점 */
+    , #frstRegisterId# /* 최초등록자ID */
+    , #lastUpdtPnttm# /* 최종수정시점 */
+    , #lastUpdusrId# /* 최종수정자ID */
+)
+]]>
+	</insert>
+
+	<insert id="Sub0102DAO.insert3" parameterClass="map">
+		<selectKey keyProperty="sk2" resultClass="map">
+<![CDATA[
+select
+    lpad(nvl(max(CODE), 0) + 1, 2, 0) as CODE /* 코드 */
+    , '코드명' || lpad(nvl(max(CODE), 0) + 1, 2, 0) as codeNm /* 코드명 */
+    , '코드설명' || lpad(nvl(max(CODE), 0) + 1, 2, 0) as codeDc /* 코드설명 */
+from COMTCCMMNDETAILCODE /* 공통상세코드 */
+where CODE_ID = #codeId# /* 코드ID */
+    and COMTCCMMNDETAILCODE.FRST_REGISTER_ID = 'SYSTEM2' /* 공통상세코드.최초등록자ID */
+]]>
+		</selectKey>
+
+<![CDATA[
+/*
+서브0102 등록
+*/
+insert into COMTCCMMNDETAILCODE /* 공통상세코드 */ (
+    CODE_ID /* 코드ID */
+    , CODE /* 코드 */
+    , CODE_NM /* 코드명 */
+    , CODE_DC /* 코드설명 */
+    , USE_AT /* 사용여부 */
+    , FRST_REGIST_PNTTM /* 최초등록시점 */
+    , FRST_REGISTER_ID /* 최초등록자ID */
+    , LAST_UPDT_PNTTM /* 최종수정시점 */
+    , LAST_UPDUSR_ID /* 최종수정자ID */
+) values (
+    #codeId# /* 코드ID */
+    , #sk2.code# /* 코드 */
+    , #sk2.codeNm# /* 코드명 */
+    , #sk2.codeDc# /* 코드설명 */
+    , #useAt# /* 사용여부 */
+    , sysdate /* 최초등록시점 */
+    , #frstRegisterId# /* 최초등록자ID */
+    , #lastUpdtPnttm# /* 최종수정시점 */
+    , #lastUpdusrId# /* 최종수정자ID */
+)
+]]>
+	</insert>
+
+</sqlMap>
