@@ -16,12 +16,13 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO> {
+public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO, EgovMap> {
 
 	@Override
 	public void postConstruct() {
 		super.postConstruct();
 
+		queryId.put("selectKey", "Sub0102DAO.selectKey");
 		queryId.put("insert", "Sub0102DAO.insert");
 		queryId.put("selectListMap", "Sub0102DAO.selectListMap");
 
@@ -29,6 +30,11 @@ public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO> {
 		queryId.put("selectListMap", "Sub0102DAO.selectListMap");
 		queryId.put("selectListType", "Sub0102DAO.selectListType");
 		queryId.put("selectListMapForMap", "Sub0102DAO.selectListMapForMap");
+	}
+
+	@Override
+	public Sub0102VO selectKey(Sub0102VO vo) throws Exception {
+		return super.selectKey(vo);
 	}
 
 	/**

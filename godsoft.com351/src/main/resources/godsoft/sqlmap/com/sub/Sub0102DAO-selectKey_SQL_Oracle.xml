@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Sub0102DAO">
+
+	<resultMap class="godsoft.com.sub.service.Sub0102VO" id="Sub0102DAO.selectKey.resultMap">
+		<!-- 코드 -->
+		<result property="code" column="CODE" />
+
+		<!-- 코드명 -->
+		<result property="codeNm" column="CODE_NM" />
+
+		<!-- 코드설명 -->
+		<result property="codeDc" column="CODE_DC" />
+	</resultMap>
+
+	<select id="Sub0102DAO.selectKey" parameterClass="godsoft.com.sub.service.Sub0102VO"
+		resultMap="Sub0102DAO.selectKey.resultMap">
+<![CDATA[
+/*
+서브0102 기본키 조회(단건)
+*/
+1select
+    CODE as CODE /* 코드 */
+    , '코드명' || CODE as CODE_NM /* 코드명 */
+    , '코드설명' || CODE as CODE_DC /* 코드설명 */
+from (
+    select
+        lpad(nvl(max(CODE), 0) + 1, 2, 0) as CODE /* 코드 */
+    from COMTCCMMNDETAILCODE /* 공통상세코드 */
+    where CODE_ID = #codeId# /* 코드ID */
+        and COMTCCMMNDETAILCODE.FRST_REGISTER_ID = 'SYSTEM2' /* 공통상세코드.최초등록자ID */
+)
+]]>
+	</select>
+
+</sqlMap>

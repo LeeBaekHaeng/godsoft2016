@@ -29,9 +29,9 @@ public class Sub0102DAOInsertTest {
 
 	@Test
 	public void test() throws Exception {
-		// insert();
+		insert();
 		// insert2();
-		insert3();
+		// insert3();
 	}
 
 	public void insert() throws Exception {
@@ -96,7 +96,7 @@ public class Sub0102DAOInsertTest {
 		// vo.setCodeDc("코드설명01"); // 코드설명
 		// vo.setUseAt("Y"); // 사용여부
 		// // vo.setFrstRegistPnttm(null); // 최초등록시점
-		// vo.setFrstRegistPnttm(today); // 최초등록시점
+		vo.put("frstRegistPnttm", today); // 최초등록시점
 		// vo.setFrstRegisterId("SYSTEM2"); // 최초등록자ID
 		// vo.setLastUpdtPnttm(null); // 최종수정시점
 		// vo.setLastUpdusrId(null); // 최종수정자ID

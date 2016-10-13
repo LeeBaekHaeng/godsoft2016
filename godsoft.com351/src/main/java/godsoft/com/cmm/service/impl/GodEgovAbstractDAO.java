@@ -9,7 +9,6 @@ import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
 import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
-import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * 갓소프트 ibatis DAO
@@ -20,12 +19,24 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @param <T>
  */
 @Repository
-public class GodEgovAbstractDAO<T> extends EgovComAbstractDAO {
+public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 
 	protected Map<String, String> queryId = new HashMap<String, String>();
 
 	@PostConstruct
 	public void postConstruct() {
+	}
+
+	/**
+	 * 기본키 조회(단건)
+	 * 
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
+	@SuppressWarnings("unchecked")
+	public T selectKey(T vo) throws Exception {
+		return (T) select(queryId.get("selectKey"), vo);
 	}
 
 	/**
@@ -59,8 +70,8 @@ public class GodEgovAbstractDAO<T> extends EgovComAbstractDAO {
 	 * @throws Exception
 	 */
 	@SuppressWarnings("unchecked")
-	public List<EgovMap> selectList(T vo) throws Exception {
-		return (List<EgovMap>) list(queryId.get("selectListMap"), vo);
+	public List<E> selectList(T vo) throws Exception {
+		return (List<E>) list(queryId.get("selectListMap"), vo);
 	}
 
 	/**
