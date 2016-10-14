@@ -2,6 +2,7 @@ package godsoft.com.cmm.service.impl;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.springframework.ui.ModelMap;
@@ -26,6 +27,7 @@ public class GodEgovAbstractServiceImpl<T, E> extends EgovAbstractServiceImpl
 	protected GodEgovAbstractDAO<T, E> godEgovAbstractDAO;
 
 	@Override
+	@PostConstruct
 	public void postConstruct() {
 	}
 
@@ -35,20 +37,8 @@ public class GodEgovAbstractServiceImpl<T, E> extends EgovAbstractServiceImpl
 	}
 
 	@Override
-	public int insert(T vo) throws Exception {
-		int insert = 0;
-
-		try {
-			Object o = godEgovAbstractDAO.insert(vo);
-
-			egovLogger.debug("o=" + o);
-
-			insert = 1;
-		} catch (Exception e) {
-			insert = 0;
-		}
-
-		return insert;
+	public Object insert(T vo) throws Exception {
+		return godEgovAbstractDAO.insert(vo);
 	}
 
 	@Override

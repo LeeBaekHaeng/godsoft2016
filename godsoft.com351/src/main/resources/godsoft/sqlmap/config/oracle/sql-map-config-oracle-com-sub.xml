@@ -11,5 +11,6 @@
 	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0102DAO-selectKey_SQL_Oracle.xml" />
 	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0102DAO-insert_SQL_Oracle.xml" />
 	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0102DAO-selectList_SQL_Oracle.xml" />
+	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0102DAO-update_SQL_Oracle.xml" />
 
 </sqlMapConfig>

@@ -1,8 +1,10 @@
 package godsoft.com.sub.service.impl;
 
+import egovframework.rte.fdl.string.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.com.sub.service.Sub0102VO;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,9 +31,43 @@ public class Sub0102DAOTest {
 
 	@Test
 	public void test() throws Exception {
-		selectList();
+		// selectKey();
+		// insert();
+		update();
+		// selectList();
+
 		// selectListMap();
 		// selectListType();
+	}
+
+	public void selectKey() throws Exception {
+		Sub0102VO vo = new Sub0102VO();
+
+		vo.setCodeId("COM001");
+
+		Sub0102VO item = sub0102DAO.selectKey(vo);
+
+		egovLogger.debug("item=" + item);
+		egovLogger.debug("item=" + item.getCode());
+		egovLogger.debug("item=" + item.getCodeNm());
+		egovLogger.debug("item=" + item.getCodeDc());
+	}
+
+	public void insert() throws Exception {
+		Sub0102VO vo = new Sub0102VO();
+
+		vo.setCodeId("COM001");
+
+		Sub0102VO item = sub0102DAO.selectKey(vo);
+
+		vo = item;
+
+		vo.setUseAt("Y");
+		vo.setFrstRegisterId("SYSTEM2");
+
+		int insert = sub0102DAO.insert(vo);
+
+		egovLogger.debug("insert=" + insert);
 	}
 
 	public void selectList() throws Exception {
@@ -54,6 +90,34 @@ public class Sub0102DAOTest {
 			egovLogger.debug("item=" + item.get("codeId"));
 		}
 	}
+
+	public void update() throws Exception {
+		// String today = EgovDateUtil
+		// .toString(new Date(), "yyyyMMddHHmmss", null);
+
+		String today = EgovDateUtil.toString(new Date(), "", null);
+		String todayHHmmss = EgovDateUtil
+				.toString(new Date(), "HH:mm:ss", null);
+
+		egovLogger.debug("today=" + today);
+
+		Sub0102VO vo = new Sub0102VO();
+
+		vo.setCodeId("COM001");
+		vo.setCode("01");
+
+		vo.setCodeNm("코드명01 " + today);
+		// vo.setCodeDc("코드설명01 " + today);
+		// vo.setUseAt("N");
+
+		vo.setLastUpdusrId("SYSTEM2 " + todayHHmmss);
+
+		int update = sub0102DAO.update(vo);
+
+		egovLogger.debug("update=" + update);
+	}
+
+	// 추가
 
 	public void selectListMap() throws Exception {
 		Sub0102VO vo = new Sub0102VO();

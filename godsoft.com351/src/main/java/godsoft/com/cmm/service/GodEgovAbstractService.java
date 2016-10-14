@@ -36,7 +36,7 @@ public interface GodEgovAbstractService<T, E> {
 	 * @return
 	 * @throws Exception
 	 */
-	int insert(T vo) throws Exception;
+	Object insert(T vo) throws Exception;
 
 	/**
 	 * 상세 조회(단건)

@@ -6,8 +6,6 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.stereotype.Repository;
-
 import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
 
 /**
@@ -18,7 +16,6 @@ import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
  *
  * @param <T>
  */
-@Repository
 public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 
 	protected Map<String, String> queryId = new HashMap<String, String>();
@@ -46,8 +43,8 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public Object insert(T vo) throws Exception {
-		return insert(queryId.get("insert"), vo);
+	public int insert(T vo) throws Exception {
+		return update(queryId.get("insert"), vo);
 	}
 
 	/**

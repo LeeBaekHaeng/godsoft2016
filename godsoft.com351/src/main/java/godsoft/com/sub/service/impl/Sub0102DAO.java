@@ -24,7 +24,13 @@ public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO, EgovMap> {
 
 		queryId.put("selectKey", "Sub0102DAO.selectKey");
 		queryId.put("insert", "Sub0102DAO.insert");
-		queryId.put("selectListMap", "Sub0102DAO.selectListMap");
+		queryId.put("select", "Sub0102DAO.select");
+		queryId.put("selectList", "Sub0102DAO.selectList");
+		queryId.put("selectListCount", "Sub0102DAO.selectListCount");
+		queryId.put("update", "Sub0102DAO.update");
+		queryId.put("delete", "Sub0102DAO.delete");
+		queryId.put("merge", "Sub0102DAO.merge");
+		queryId.put("multi", "Sub0102DAO.multi");
 
 		// 추가
 		queryId.put("selectListMap", "Sub0102DAO.selectListMap");
@@ -41,27 +47,9 @@ public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO, EgovMap> {
 	 * 서브0102 등록
 	 */
 	@Override
-	public Object insert(Sub0102VO vo) throws Exception {
+	public int insert(Sub0102VO vo) throws Exception {
 		return super.insert(vo);
 	}
-
-	public Object insert2(Sub0102VO vo) throws Exception {
-		return insert("Sub0102DAO.insert2", vo);
-	}
-
-	public Object insert3(Map<String, Object> vo) throws Exception {
-		return insert("Sub0102DAO.insert3", vo);
-	}
-
-	// public int insert2(Sub0102VO vo) throws Exception {
-	// int insert2 = 0;
-	//
-	// String selectKey = (String) super.insert(vo);
-	//
-	// vo.setCodeId(selectKey);
-	//
-	// return insert2;
-	// }
 
 	@Override
 	public Sub0102VO select(Sub0102VO vo) throws Exception {
@@ -99,6 +87,24 @@ public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO, EgovMap> {
 	}
 
 	// 추가
+
+	public Object insert2(Sub0102VO vo) throws Exception {
+		return insert("Sub0102DAO.insert2", vo);
+	}
+
+	public Object insert3(Map<String, Object> vo) throws Exception {
+		return insert("Sub0102DAO.insert3", vo);
+	}
+
+	// public int insert2(Sub0102VO vo) throws Exception {
+	// int insert2 = 0;
+	//
+	// String selectKey = (String) super.insert(vo);
+	//
+	// vo.setCodeId(selectKey);
+	//
+	// return insert2;
+	// }
 
 	@SuppressWarnings("unchecked")
 	public List<EgovMap> selectListMap(Sub0102VO vo) throws Exception {

@@ -4,6 +4,9 @@
 <sqlMap namespace="Sub0102DAO">
 
 	<resultMap class="godsoft.com.sub.service.Sub0102VO" id="Sub0102DAO.selectKey.resultMap">
+		<!-- 코드ID -->
+		<result property="codeId" column="CODE_ID" />
+
 		<!-- 코드 -->
 		<result property="code" column="CODE" />
 
@@ -20,8 +23,9 @@
 /*
 서브0102 기본키 조회(단건)
 */
-1select
-    CODE as CODE /* 코드 */
+select
+    #codeId# as CODE_ID /* 코드ID */
+    , CODE /* 코드 */
     , '코드명' || CODE as CODE_NM /* 코드명 */
     , '코드설명' || CODE as CODE_DC /* 코드설명 */
 from (

@@ -5,9 +5,6 @@
 
 	<sql id="Sub0102DAO.insert.sql">
 <![CDATA[
-/*
-서브0102 등록
-*/
 insert into COMTCCMMNDETAILCODE /* 공통상세코드 */ (
     CODE_ID /* 코드ID */
     , CODE /* 코드 */
@@ -32,20 +29,14 @@ insert into COMTCCMMNDETAILCODE /* 공통상세코드 */ (
 ]]>
 	</sql>
 
-	<insert id="Sub0102DAO.insert" parameterClass="godsoft.com.sub.service.Sub0102VO">
-		<selectKey keyProperty="code" resultClass="string">
+	<update id="Sub0102DAO.insert" parameterClass="godsoft.com.sub.service.Sub0102VO">
 <![CDATA[
-select
-    lpad(nvl(max(CODE), 0) + 1, 2, 0) as CODE /* 코드 */
-    , '코드명' || lpad(nvl(max(CODE), 0) + 1, 2, 0) as CODE_NM /* 코드명 */
-from COMTCCMMNDETAILCODE /* 공통상세코드 */
-where CODE_ID = #codeId# /* 코드ID */
-    and COMTCCMMNDETAILCODE.FRST_REGISTER_ID = 'SYSTEM2' /* 공통상세코드.최초등록자ID */
+/*
+서브0102 등록
+*/
 ]]>
-		</selectKey>
-
 		<include refid="Sub0102DAO.insert.sql" />
-	</insert>
+	</update>
 
 	<insert id="Sub0102DAO.insert2" parameterClass="godsoft.com.sub.service.Sub0102VO">
 		<selectKey keyProperty="sk" resultClass="godsoft.com.sub.service.Sub0102VO">
