@@ -1,13 +1,11 @@
 package godsoft.com.sub.service.impl;
 
-import egovframework.rte.fdl.string.EgovDateUtil;
-import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.com.sub.service.Sub0102VO;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +14,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import egovframework.com.cmm.EgovMessageSource;
+import egovframework.rte.fdl.string.EgovDateUtil;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.com.sub.service.Sub0102VO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
@@ -28,6 +31,9 @@ public class Sub0102DAOTest {
 
 	@Autowired
 	private Sub0102DAO sub0102DAO;
+
+	@Resource(name = "egovMessageSource")
+	private EgovMessageSource egovMessageSource;
 
 	@Test
 	public void test() throws Exception {
@@ -112,9 +118,22 @@ public class Sub0102DAOTest {
 
 		vo.setLastUpdusrId("SYSTEM2 " + todayHHmmss);
 
-		int update = sub0102DAO.update(vo);
+		// int update = sub0102DAO.update(vo);
+		int update = sub0102DAO.updateIsNotEmpty(vo);
 
 		egovLogger.debug("update=" + update);
+
+		if (update == 0) {
+			String failCommonUpdate = egovMessageSource
+					.getMessage("fail.common.update");
+
+			egovLogger.debug("failCommonUpdate=" + failCommonUpdate);
+		} else {
+			String successCommonUpdate = egovMessageSource
+					.getMessage("success.common.update");
+
+			egovLogger.debug("successCommonUpdate=" + successCommonUpdate);
+		}
 	}
 
 	// 추가

@@ -71,6 +71,10 @@ public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO, EgovMap> {
 		return super.update(vo);
 	}
 
+	public int updateIsNotEmpty(Sub0102VO vo) throws Exception {
+		return update("Sub0102DAO.updateIsNotEmpty", vo);
+	}
+
 	@Override
 	public int delete(Sub0102VO vo) throws Exception {
 		return super.delete(vo);

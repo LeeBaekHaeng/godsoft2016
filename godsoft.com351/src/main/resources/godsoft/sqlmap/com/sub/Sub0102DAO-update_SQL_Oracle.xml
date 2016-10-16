@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Sub0102DAO">
+
+	<update id="Sub0102DAO.update" parameterClass="godsoft.com.sub.service.Sub0102VO">
+<![CDATA[
+/*
+서브0102 수정
+*/
+update COMTCCMMNDETAILCODE /* 공통상세코드 */ set
+    LAST_UPDT_PNTTM = sysdate /* 최종수정시점 */
+    , LAST_UPDUSR_ID = #lastUpdusrId# /* 최종수정자ID */
+    , CODE_NM = #codeNm# /* 코드명 */
+    , CODE_DC = #codeDc# /* 코드설명 */
+    , USE_AT = #useAt# /* 사용여부 */
+where 1 = 1
+    and CODE_ID = #codeId# /* 코드ID */
+    and CODE = #code# /* 코드 */
+]]>
+	</update>
+
+	<update id="Sub0102DAO.updateIsNotEmpty" parameterClass="godsoft.com.sub.service.Sub0102VO">
+<![CDATA[
+/*
+서브0102 수정
+*/
+update COMTCCMMNDETAILCODE /* 공통상세코드 */ set
+    LAST_UPDT_PNTTM = sysdate /* 최종수정시점 */
+]]>
+
+		<isNotEmpty property="lastUpdusrId">
+<![CDATA[
+    , LAST_UPDUSR_ID = #lastUpdusrId# /* 최종수정자ID */
+]]>
+		</isNotEmpty>
+
+		<isNotEmpty property="codeNm">
+<![CDATA[
+    , CODE_NM = #codeNm# /* 코드명 */
+]]>
+		</isNotEmpty>
+
+		<isNotEmpty property="codeDc">
+<![CDATA[
+    , CODE_DC = #codeDc# /* 코드설명 */
+]]>
+		</isNotEmpty>
+
+		<isNotEmpty property="useAt">
+<![CDATA[
+    , USE_AT = #useAt# /* 사용여부 */
+]]>
+		</isNotEmpty>
+
+<![CDATA[
+where 1 = 1
+    and CODE_ID = #codeId# /* 코드ID */
+    and CODE = #code# /* 코드 */
+]]>
+	</update>
+
+</sqlMap>
