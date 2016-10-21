@@ -1,0 +1,1 @@
+sqlplus test/test@127.0.0.1:1521/orcl "@C:\Users\LeeBaekHaeng\Documents\기관코드 전체자료 2016-09-23 16-48-05.sql"
