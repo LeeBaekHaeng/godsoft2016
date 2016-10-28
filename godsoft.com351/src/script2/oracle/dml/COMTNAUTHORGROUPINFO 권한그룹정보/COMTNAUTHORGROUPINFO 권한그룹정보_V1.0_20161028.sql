@@ -1,0 +1,4 @@
+select
+    COMTNAUTHORGROUPINFO.*
+from COMTNAUTHORGROUPINFO /* 권한그룹정보 */
+;
