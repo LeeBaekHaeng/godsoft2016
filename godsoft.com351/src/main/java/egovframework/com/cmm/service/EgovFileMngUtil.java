@@ -12,17 +12,13 @@ import java.io.OutputStream;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import egovframework.com.cmm.EgovWebUtil;
-import egovframework.com.cmm.util.EgovResourceCloseHelper;
-
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +27,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
+
+import egovframework.com.cmm.EgovWebUtil;
+import egovframework.com.cmm.util.EgovResourceCloseHelper;
+import egovframework.rte.fdl.idgnr.EgovIdGnrService;
+import egovframework.rte.fdl.string.EgovDateUtil;
 
 /**
  * @Class Name  : EgovFileMngUtil.java
@@ -69,9 +70,11 @@ public class EgovFileMngUtil {
 		String atchFileIdString = "";
 
 		if ("".equals(storePath) || storePath == null) {
-			storePathString = EgovProperties.getProperty("Globals.fileStorePath");
+//			storePathString = EgovProperties.getProperty("Globals.fileStorePath");
+			storePathString = EgovProperties.getProperty("Globals.fileStorePath") + EgovDateUtil.toString(new Date(), "yyyy/MM/dd", null);
 		} else {
-			storePathString = EgovProperties.getProperty(storePath);
+//			storePathString = EgovProperties.getProperty(storePath);
+			storePathString = EgovProperties.getProperty(storePath) + EgovDateUtil.toString(new Date(), "yyyy/MM/dd", null);
 		}
 
 		if ("".equals(atchFileId) || atchFileId == null) {
