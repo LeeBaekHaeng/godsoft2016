@@ -58,7 +58,7 @@
 
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="1" p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:viewClass="org.springframework.web.servlet.view.JstlView"/>
 
-	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean>
+<!-- 	<bean id="mappingJackson2JsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean> -->
 
 	<bean class="godsoft.com.cmm.web.GodsoftExcelView"></bean>
 
