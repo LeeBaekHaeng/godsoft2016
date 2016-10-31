@@ -35,3 +35,13 @@ select
     , max(FILE_SN)
 from COMTNFILEDETAIL /* 파일상세정보 */
 ;
+
+select * from all_tab_cols where 1 = 1
+    and OWNER = 'TEST'
+    and COLUMN_NAME = 'ATCH_FILE_ID'
+order by
+    TABLE_NAME
+;
+
+select * from COMTHEMAILDSPTCHMANAGE /* 메일발신관리 */
+;
