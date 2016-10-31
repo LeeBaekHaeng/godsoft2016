@@ -12,49 +12,19 @@ import egovframework.com.cmm.ComDefaultVO;
 public class Sub0103VO extends ComDefaultVO {
 
 	/**
-	 * COMTCCMMNDETAILCODE.CODE_ID 공통상세코드.코드ID
+	 * <pre>
+	 *  COMTHEMAILDSPTCHMANAGE.MSSAGE_ID
+	 * 메일발신관리.메시지ID
+	 * </pre>
 	 */
-	private String codeId;
+	private String mssageId;
 
-	/**
-	 * COMTCCMMNDETAILCODE.USE_AT 공통상세코드.사용여부
-	 */
-	private String useAt;
-
-	/**
-	 * COMTCCMMNDETAILCODE.CODE_ID 공통상세코드.코드ID 값읽기
-	 * 
-	 * @return
-	 */
-	public String getCodeId() {
-		return codeId;
+	public String getMssageId() {
+		return mssageId;
 	}
 
-	/**
-	 * COMTCCMMNDETAILCODE.CODE_ID 공통상세코드.코드ID 값설정
-	 * 
-	 * @param codeId
-	 */
-	public void setCodeId(String codeId) {
-		this.codeId = codeId;
-	}
-
-	/**
-	 * COMTCCMMNDETAILCODE.USE_AT 공통상세코드.사용여부 값읽기
-	 * 
-	 * @return
-	 */
-	public String getUseAt() {
-		return useAt;
-	}
-
-	/**
-	 * COMTCCMMNDETAILCODE.USE_AT 공통상세코드.사용여부 값설정
-	 * 
-	 * @param useAt
-	 */
-	public void setUseAt(String useAt) {
-		this.useAt = useAt;
+	public void setMssageId(String mssageId) {
+		this.mssageId = mssageId;
 	}
 
 }

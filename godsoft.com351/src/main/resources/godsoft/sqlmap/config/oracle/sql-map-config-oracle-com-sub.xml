@@ -13,4 +13,7 @@
 	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0102DAO-selectList_SQL_Oracle.xml" />
 	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0102DAO-update_SQL_Oracle.xml" />
 
+	<!-- 서브0103 -->
+	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0103-selectList_SQL_Oracle.xml" />
+
 </sqlMapConfig>

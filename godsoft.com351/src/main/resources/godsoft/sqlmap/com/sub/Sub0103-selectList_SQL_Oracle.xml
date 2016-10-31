@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Sub0103DAO">
+
+	<sql id="Sub0103DAO.selectList.from.where">
+<![CDATA[
+from COMTHEMAILDSPTCHMANAGE /* 메일발신관리 */
+where 1 = 1
+]]>
+
+		<isNotEmpty property="mssageId">
+<![CDATA[
+    and COMTHEMAILDSPTCHMANAGE.MSSAGE_ID = #mssageId# /* 메일발신관리.메시지ID */
+]]>
+		</isNotEmpty>
+	</sql>
+
+	<select id="Sub0103DAO.selectList" parameterClass="godsoft.com.sub.service.Sub0103VO"
+		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+<![CDATA[
+select
+    A.MSSAGE_ID /* 메일발신관리.메시지ID */
+    , A.EMAIL_CN /* 메일발신관리.이메일내용 */
+    , A.SNDR /* 메일발신관리.발신자 */
+    , A.RCVER /* 메일발신관리.수신자 */
+    , A.SJ /* 메일발신관리.제목 */
+    , A.SNDNG_RESULT_CODE /* 메일발신관리.발송결과코드 */
+    , A.DSPTCH_DT /* 메일발신관리.발신일시 */
+    , A.ATCH_FILE_ID /* 메일발신관리.첨부파일ID */
+from (select ROWNUM as RN, TB.* from (
+    select
+        COMTHEMAILDSPTCHMANAGE.MSSAGE_ID /* 메일발신관리.메시지ID */
+        , COMTHEMAILDSPTCHMANAGE.EMAIL_CN /* 메일발신관리.이메일내용 */
+        , COMTHEMAILDSPTCHMANAGE.SNDR /* 메일발신관리.발신자 */
+        , COMTHEMAILDSPTCHMANAGE.RCVER /* 메일발신관리.수신자 */
+        , COMTHEMAILDSPTCHMANAGE.SJ /* 메일발신관리.제목 */
+        , COMTHEMAILDSPTCHMANAGE.SNDNG_RESULT_CODE /* 메일발신관리.발송결과코드 */
+        , COMTHEMAILDSPTCHMANAGE.DSPTCH_DT /* 메일발신관리.발신일시 */
+        , COMTHEMAILDSPTCHMANAGE.ATCH_FILE_ID /* 메일발신관리.첨부파일ID */
+]]>
+		<include refid="Sub0103DAO.selectList.from.where" />
+<![CDATA[
+) TB) A where RN between #firstIndex# + 1 and #firstIndex# + #recordCountPerPage#
+]]>
+	</select>
+
+	<select id="Sub0103DAO.selectListCount" parameterClass="godsoft.com.sub.service.Sub0103VO"
+		resultClass="int">
+<![CDATA[
+select
+    count(*) as CNT
+]]>
+		<include refid="Sub0103DAO.selectList.from.where" />
+	</select>
+
+</sqlMap>
