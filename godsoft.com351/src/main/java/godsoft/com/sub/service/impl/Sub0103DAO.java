@@ -1,6 +1,7 @@
 package godsoft.com.sub.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -30,8 +31,26 @@ public class Sub0103DAO extends EgovComAbstractDAO {
 		return items;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<EgovMap> selectList(Map<String, Object> vo) {
+		List<EgovMap> items = null;
+
+		try {
+			items = (List<EgovMap>) list("Sub0103DAO.selectListMap", vo);
+		} catch (Exception e) {
+			logger.error("sqlMap=" + getClass());
+			logger.error(e.getMessage());
+		}
+
+		return items;
+	}
+
 	public int selectListCount(Sub0103VO vo) {
 		return (int) select("Sub0103DAO.selectListCount", vo);
+	}
+
+	public int selectListCount(Map<String, Object> vo) {
+		return (int) select("Sub0103DAO.selectListCountMap", vo);
 	}
 
 }

@@ -3,9 +3,14 @@
 
 <sqlMap namespace="Sub0103DAO">
 
-	<sql id="Sub0103DAO.selectList.from.where">
+	<sql id="Sub0103DAO.selectList.from">
 <![CDATA[
 from COMTHEMAILDSPTCHMANAGE /* 메일발신관리 */
+]]>
+	</sql>
+
+	<sql id="Sub0103DAO.selectList.where">
+<![CDATA[
 where 1 = 1
 ]]>
 
@@ -14,10 +19,10 @@ where 1 = 1
     and COMTHEMAILDSPTCHMANAGE.MSSAGE_ID = #mssageId# /* 메일발신관리.메시지ID */
 ]]>
 		</isNotEmpty>
+
 	</sql>
 
-	<select id="Sub0103DAO.selectList" parameterClass="godsoft.com.sub.service.Sub0103VO"
-		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+	<sql id="Sub0103DAO.selectList.select">
 <![CDATA[
 select
     A.MSSAGE_ID /* 메일발신관리.메시지ID */
@@ -39,10 +44,25 @@ from (select ROWNUM as RN, TB.* from (
         , COMTHEMAILDSPTCHMANAGE.DSPTCH_DT /* 메일발신관리.발신일시 */
         , COMTHEMAILDSPTCHMANAGE.ATCH_FILE_ID /* 메일발신관리.첨부파일ID */
 ]]>
-		<include refid="Sub0103DAO.selectList.from.where" />
+		<include refid="Sub0103DAO.selectList.from" />
+		<include refid="Sub0103DAO.selectList.where" />
 <![CDATA[
 ) TB) A where RN between #firstIndex# + 1 and #firstIndex# + #recordCountPerPage#
 ]]>
+	</sql>
+
+	<select id="Sub0103DAO.selectList" parameterClass="godsoft.com.sub.service.Sub0103VO"
+		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+<![CDATA[
+]]>
+		<include refid="Sub0103DAO.selectList.select" />
+	</select>
+
+	<select id="Sub0103DAO.selectListMap" parameterClass="map"
+		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+<![CDATA[
+]]>
+		<include refid="Sub0103DAO.selectList.select" />
 	</select>
 
 	<select id="Sub0103DAO.selectListCount" parameterClass="godsoft.com.sub.service.Sub0103VO"
@@ -51,7 +71,18 @@ from (select ROWNUM as RN, TB.* from (
 select
     count(*) as CNT
 ]]>
-		<include refid="Sub0103DAO.selectList.from.where" />
+		<include refid="Sub0103DAO.selectList.from" />
+		<include refid="Sub0103DAO.selectList.where" />
+	</select>
+
+	<select id="Sub0103DAO.selectListCountMap" parameterClass="map"
+		resultClass="int">
+<![CDATA[
+select
+    count(*) as CNT
+]]>
+		<include refid="Sub0103DAO.selectList.from" />
+		<include refid="Sub0103DAO.selectList.where" />
 	</select>
 
 </sqlMap>
