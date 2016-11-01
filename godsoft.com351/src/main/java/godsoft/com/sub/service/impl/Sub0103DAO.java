@@ -36,7 +36,8 @@ public class Sub0103DAO extends EgovComAbstractDAO {
 		List<EgovMap> items = null;
 
 		try {
-			items = (List<EgovMap>) list("Sub0103DAO.selectListMap", vo);
+			// items = (List<EgovMap>) list("Sub0103DAO.selectListMap", vo);
+			items = (List<EgovMap>) list("Sub0103DAO.selectList", vo);
 		} catch (Exception e) {
 			logger.error("sqlMap=" + getClass());
 			logger.error(e.getMessage());

@@ -5,7 +5,9 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.com.sub.service.Sub0103VO;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,6 +45,26 @@ public class Sub0103DAOTest {
 	}
 
 	@Test
+	public void selectListMap() throws Exception {
+		Map<String, Object> vo = new HashMap<String, Object>();
+
+		vo.put("firstIndex", 0);
+		// vo.setRecordCountPerPage(10);
+		vo.put("recordCountPerPage", Integer.MAX_VALUE);
+
+		List<EgovMap> items = Sub0103DAO.selectList(vo);
+
+		if (items != null) {
+			System.out.println("items=" + items);
+
+			for (EgovMap item : items) {
+				System.out.println("item=" + item);
+				System.out.println("mssageId=" + item.get("mssageId"));
+			}
+		}
+	}
+
+	// @Test
 	public void testData() throws Exception {
 		String today = EgovDateUtil
 				.toString(new Date(), "yyyyMMddHHmmss", null);

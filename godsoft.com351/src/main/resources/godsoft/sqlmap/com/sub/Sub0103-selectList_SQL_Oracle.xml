@@ -51,8 +51,7 @@ from (select ROWNUM as RN, TB.* from (
 ]]>
 	</sql>
 
-	<select id="Sub0103DAO.selectList" parameterClass="godsoft.com.sub.service.Sub0103VO"
-		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+	<select id="Sub0103DAO.selectList" resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
 <![CDATA[
 ]]>
 		<include refid="Sub0103DAO.selectList.select" />
