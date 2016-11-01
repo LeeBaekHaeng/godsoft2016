@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +23,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 		"classpath:godsoft/spring/com/**/context-*.xml" })
 public class Sub0103DAOTest {
 
+	protected final Log logger = LogFactory.getLog(getClass());
+
 	@Autowired
 	private Sub0103DAO Sub0103DAO;
 
 	// @Test
-	public void selectList() throws Exception {
+	public void selectList() {
 		Sub0103VO vo = new Sub0103VO();
 
 		vo.setFirstIndex(0);
@@ -34,18 +38,11 @@ public class Sub0103DAOTest {
 
 		List<EgovMap> items = Sub0103DAO.selectList(vo);
 
-		if (items != null) {
-			System.out.println("items=" + items);
-
-			for (EgovMap item : items) {
-				System.out.println("item=" + item);
-				System.out.println("item=" + item.get("mssageId"));
-			}
-		}
+		debugEgovMap(items);
 	}
 
-	@Test
-	public void selectListMap() throws Exception {
+	// @Test
+	public void selectListMap() {
 		Map<String, Object> vo = new HashMap<String, Object>();
 
 		vo.put("firstIndex", 0);
@@ -54,14 +51,104 @@ public class Sub0103DAOTest {
 
 		List<EgovMap> items = Sub0103DAO.selectList(vo);
 
+		debugEgovMap(items);
+	}
+
+	// @Test
+	public void selectListMapForEgovMap() {
+		Map<String, Object> vo = new HashMap<String, Object>();
+
+		vo.put("firstIndex", 0);
+		vo.put("recordCountPerPage", Integer.MAX_VALUE);
+
+		List<EgovMap> items = Sub0103DAO.selectListMapForEgovMap(vo);
+
+		debugEgovMap(items);
+	}
+
+	// @Test
+	public void selectListMapForVO() {
+		Map<String, Object> vo = new HashMap<String, Object>();
+
+		vo.put("firstIndex", 0);
+		vo.put("recordCountPerPage", Integer.MAX_VALUE);
+
+		List<Sub0103VO> items = Sub0103DAO.selectListMapForVO(vo);
+
+		debugVO(items);
+	}
+
+	// @Test
+	public void selectListMapForResultMap() {
+		Map<String, Object> vo = new HashMap<String, Object>();
+
+		vo.put("firstIndex", 0);
+		vo.put("recordCountPerPage", Integer.MAX_VALUE);
+
+		List<EgovMap> items = Sub0103DAO.selectListMapForResultMap(vo);
+
+		debugEgovMap(items);
+	}
+
+	// @Test
+	public void selectListMapForResultMapMap() {
+		Map<String, Object> vo = new HashMap<String, Object>();
+
+		vo.put("firstIndex", 0);
+		vo.put("recordCountPerPage", Integer.MAX_VALUE);
+
+		List<Map<String, Object>> items = Sub0103DAO
+				.selectListMapForResultMapMap(vo);
+
+		debugMap(items);
+	}
+
+	private void debugEgovMap(List<EgovMap> items) {
 		if (items != null) {
-			System.out.println("items=" + items);
+			logger.debug("items=" + items);
 
 			for (EgovMap item : items) {
-				System.out.println("item=" + item);
-				System.out.println("mssageId=" + item.get("mssageId"));
+				logger.debug("item=" + item);
+				logger.debug("mssageId=" + item.get("mssageId"));
 			}
 		}
+	}
+
+	private void debugVO(List<Sub0103VO> items) {
+		if (items != null) {
+			logger.debug("items=" + items);
+
+			for (Sub0103VO item : items) {
+				logger.debug("item=" + item);
+				logger.debug("mssageId=" + item.getMssageId());
+			}
+		}
+	}
+
+	private void debugMap(List<Map<String, Object>> items) {
+		if (items != null) {
+			logger.debug("items=" + items);
+
+			for (Map<String, Object> item : items) {
+				logger.debug("item=" + item);
+				logger.debug("mssageId=" + item.get("mssageId"));
+			}
+		}
+	}
+
+	@Test
+	public void select() {
+		Map<String, Object> vo = new HashMap<String, Object>();
+
+		vo.put("mssageId", "1");
+		vo.put("mssageId", "201611010857171");
+
+		EgovMap item = Sub0103DAO.select(vo);
+
+		logger.debug("item=" + item);
+		logger.debug("mssageId=" + item.get("mssageId"));
+		logger.debug("emailCn=" + item.get("emailCn"));
+		logger.debug("sndr=" + item.get("sndr"));
 	}
 
 	// @Test

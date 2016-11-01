@@ -8,4 +8,6 @@ public interface Sub0103Service {
 
 	void selectList(Map<String, Object> vo, ModelMap model);
 
+	void select(Map<String, Object> vo, ModelMap model);
+
 }

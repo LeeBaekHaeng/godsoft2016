@@ -46,12 +46,80 @@ public class Sub0103DAO extends EgovComAbstractDAO {
 		return items;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<EgovMap> selectListMapForEgovMap(Map<String, Object> vo) {
+		List<EgovMap> items = null;
+
+		try {
+			items = (List<EgovMap>) list("Sub0103DAO.selectListMapForEgovMap",
+					vo);
+		} catch (Exception e) {
+			logger.error("sqlMap=" + getClass());
+			logger.error(e.getMessage());
+		}
+
+		return items;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Sub0103VO> selectListMapForVO(Map<String, Object> vo) {
+		List<Sub0103VO> items = null;
+
+		try {
+			items = (List<Sub0103VO>) list("Sub0103DAO.selectListMapForVO", vo);
+		} catch (Exception e) {
+			logger.error("sqlMap=" + getClass());
+			logger.error(e.getMessage());
+		}
+
+		return items;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<EgovMap> selectListMapForResultMap(Map<String, Object> vo) {
+		List<EgovMap> items = null;
+
+		try {
+			items = (List<EgovMap>) list(
+					"Sub0103DAO.selectListMapForResultMap", vo);
+		} catch (Exception e) {
+			logger.error("sqlMap=" + getClass());
+			logger.error(e.getMessage());
+		}
+
+		return items;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectListMapForResultMapMap(
+			Map<String, Object> vo) {
+		List<Map<String, Object>> items = null;
+
+		try {
+			items = (List<Map<String, Object>>) list(
+					"Sub0103DAO.selectListMapForResultMapMap", vo);
+		} catch (Exception e) {
+			logger.error("sqlMap=" + getClass());
+			logger.error(e.getMessage());
+		}
+
+		return items;
+	}
+
 	public int selectListCount(Sub0103VO vo) {
 		return (int) select("Sub0103DAO.selectListCount", vo);
 	}
 
 	public int selectListCount(Map<String, Object> vo) {
 		return (int) select("Sub0103DAO.selectListCountMap", vo);
+	}
+
+	public EgovMap select(Map<String, Object> vo) {
+		return (EgovMap) select("Sub0103DAO.select", vo);
+	}
+
+	public EgovMap selectForEgovMap(Map<String, Object> vo) {
+		return (EgovMap) select("Sub0103DAO.selectForEgovMap", vo);
 	}
 
 }

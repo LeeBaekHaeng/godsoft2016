@@ -35,4 +35,10 @@ public class Sub0103ServiceImpl extends EgovAbstractServiceImpl implements
 		model.addAttribute("paginationInfo", paginationInfo);
 	}
 
+	@Override
+	public void select(Map<String, Object> vo, ModelMap model) {
+		model.addAttribute("item2", sub0103DAO.select(vo));
+		model.addAttribute("selectForEgovMap", sub0103DAO.selectForEgovMap(vo));
+	}
+
 }

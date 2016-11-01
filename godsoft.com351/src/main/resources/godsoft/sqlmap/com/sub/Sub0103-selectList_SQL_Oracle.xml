@@ -51,6 +51,35 @@ from (select ROWNUM as RN, TB.* from (
 ]]>
 	</sql>
 
+	<sql id="Sub0103DAO.selectList.select2">
+<![CDATA[
+select
+    A.MSSAGE_ID as mssageId /* 메일발신관리.메시지ID */
+    , A.EMAIL_CN as emailCn /* 메일발신관리.이메일내용 */
+    , A.SNDR as sndr /* 메일발신관리.발신자 */
+    , A.RCVER as rcver /* 메일발신관리.수신자 */
+    , A.SJ as sj /* 메일발신관리.제목 */
+    , A.SNDNG_RESULT_CODE as sndngResultCode /* 메일발신관리.발송결과코드 */
+    , A.DSPTCH_DT as dsptchDt /* 메일발신관리.발신일시 */
+    , A.ATCH_FILE_ID as atchFileId /* 메일발신관리.첨부파일ID */
+from (select ROWNUM as RN, TB.* from (
+    select
+        COMTHEMAILDSPTCHMANAGE.MSSAGE_ID /* 메일발신관리.메시지ID */
+        , COMTHEMAILDSPTCHMANAGE.EMAIL_CN /* 메일발신관리.이메일내용 */
+        , COMTHEMAILDSPTCHMANAGE.SNDR /* 메일발신관리.발신자 */
+        , COMTHEMAILDSPTCHMANAGE.RCVER /* 메일발신관리.수신자 */
+        , COMTHEMAILDSPTCHMANAGE.SJ /* 메일발신관리.제목 */
+        , COMTHEMAILDSPTCHMANAGE.SNDNG_RESULT_CODE /* 메일발신관리.발송결과코드 */
+        , COMTHEMAILDSPTCHMANAGE.DSPTCH_DT /* 메일발신관리.발신일시 */
+        , COMTHEMAILDSPTCHMANAGE.ATCH_FILE_ID /* 메일발신관리.첨부파일ID */
+]]>
+		<include refid="Sub0103DAO.selectList.from" />
+		<include refid="Sub0103DAO.selectList.where" />
+<![CDATA[
+) TB) A where RN between #firstIndex# + 1 and #firstIndex# + #recordCountPerPage#
+]]>
+	</sql>
+
 	<select id="Sub0103DAO.selectList" resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
 <![CDATA[
 ]]>
@@ -61,6 +90,37 @@ from (select ROWNUM as RN, TB.* from (
 		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
 <![CDATA[
 ]]>
+		<include refid="Sub0103DAO.selectList.select" />
+	</select>
+
+	<select id="Sub0103DAO.selectListMapForEgovMap" resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+		<include refid="Sub0103DAO.selectList.select" />
+	</select>
+
+	<select id="Sub0103DAO.selectListMapForVO" resultClass="godsoft.com.sub.service.Sub0103VO">
+		<include refid="Sub0103DAO.selectList.select2" />
+	</select>
+
+	<resultMap class="egovframework.rte.psl.dataaccess.util.EgovMap"
+		id="Sub0103DAO.selectList.resultMap.EgovMap">
+		<result column="MSSAGE_ID" property="mssageId" />
+		<result column="EMAIL_CN" property="emailCn" jdbcType="varchar"
+			javaType="string" />
+		<result column="SNDR" property="sndr" />
+	</resultMap>
+
+	<select id="Sub0103DAO.selectListMapForResultMap" resultMap="Sub0103DAO.selectList.resultMap.EgovMap">
+		<include refid="Sub0103DAO.selectList.select" />
+	</select>
+
+	<resultMap class="hashmap" id="Sub0103DAO.selectList.resultMap.map">
+		<result column="MSSAGE_ID" property="mssageId" />
+		<result column="EMAIL_CN" property="emailCn" jdbcType="varchar"
+			javaType="string" />
+		<result column="SNDR" property="sndr" />
+	</resultMap>
+
+	<select id="Sub0103DAO.selectListMapForResultMapMap" resultMap="Sub0103DAO.selectList.resultMap.map">
 		<include refid="Sub0103DAO.selectList.select" />
 	</select>
 

@@ -15,5 +15,6 @@
 
 	<!-- 서브0103 -->
 	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0103-selectList_SQL_Oracle.xml" />
+	<sqlMap resource="godsoft/sqlmap/com/sub/Sub0103-select_SQL_Oracle.xml" />
 
 </sqlMapConfig>
