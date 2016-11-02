@@ -11,15 +11,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import egovframework.com.cmm.ComDefaultVO;
 import egovframework.com.cmm.EgovMessageSource;
 import egovframework.com.cmm.service.EgovFileMngService;
 import egovframework.com.cmm.service.EgovFileMngUtil;
 import egovframework.com.cmm.service.FileVO;
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
+import godsoft.com.cmm.service.GodCmmService;
 
 @Service
-public class GodCmmServiceImpl extends EgovAbstractServiceImpl {
+public class GodCmmServiceImpl extends EgovAbstractServiceImpl implements
+		GodCmmService {
 
 	@Resource(name = "propertiesService")
 	protected EgovPropertyService propertiesService;
@@ -35,6 +39,7 @@ public class GodCmmServiceImpl extends EgovAbstractServiceImpl {
 	// @Resource(name = "EgovFileMngService")
 	private EgovFileMngService egovFileMngService;
 
+	@Override
 	public String mergeFileInfs(String atchFileId, String KeyStr,
 			String storePath, MultipartHttpServletRequest request)
 			throws Exception {
@@ -77,6 +82,18 @@ public class GodCmmServiceImpl extends EgovAbstractServiceImpl {
 		egovLogger.debug("atchFileId2=" + atchFileId);
 
 		return atchFileId;
+	}
+
+	@Override
+	public PaginationInfo selectListPrefix(ComDefaultVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PaginationInfo selectListPrefix(Map<String, Object> vo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
