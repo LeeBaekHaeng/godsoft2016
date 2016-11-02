@@ -31,7 +31,7 @@ public class Sub0103Controller {
 
 	@RequestMapping("/updateFormSub0103.do")
 	public String updateForm(@RequestParam Map<String, Object> vo,
-			ModelMap model) throws Exception {
+			ModelMap model) {
 		sub0103Service.select(vo, model);
 		return "godsoft/com/sub/updateFormSub0103";
 	}

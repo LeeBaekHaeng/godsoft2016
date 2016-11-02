@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Sub0103DAO">
+
+	<sql id="Sub0103DAO.select2.select">
+<![CDATA[
+select
+    ROWNUM as RN
+    , COMTHEMAILDSPTCHMANAGE.MSSAGE_ID /* 메일발신관리.메시지ID */
+    , COMTHEMAILDSPTCHMANAGE.EMAIL_CN /* 메일발신관리.이메일내용 */
+    , COMTHEMAILDSPTCHMANAGE.SNDR /* 메일발신관리.발신자 */
+    , COMTHEMAILDSPTCHMANAGE.RCVER /* 메일발신관리.수신자 */
+    , COMTHEMAILDSPTCHMANAGE.SJ /* 메일발신관리.제목 */
+    , COMTHEMAILDSPTCHMANAGE.SNDNG_RESULT_CODE /* 메일발신관리.발송결과코드 */
+    , COMTHEMAILDSPTCHMANAGE.DSPTCH_DT /* 메일발신관리.발신일시 */
+    , COMTHEMAILDSPTCHMANAGE.ATCH_FILE_ID /* 메일발신관리.첨부파일ID */
+from COMTHEMAILDSPTCHMANAGE /* 메일발신관리 */
+where 1 = 1
+    and COMTHEMAILDSPTCHMANAGE.MSSAGE_ID = #mssageId# /* 메일발신관리.메시지ID */
+]]>
+	</sql>
+
+	<resultMap class="egovframework.rte.psl.dataaccess.util.EgovMap"
+		id="Sub0103DAO.select2.resultMap.EgovMap">
+		<result property="RN" column="RN" />
+		<result property="MSSAGE_ID" column="MSSAGE_ID" />
+		<result property="EMAIL_CN" column="EMAIL_CN" jdbcType="varchar"
+			javaType="string" />
+		<result property="SNDR" column="SNDR" />
+		<result property="RCVER" column="RCVER" />
+		<result property="SJ" column="SJ" />
+		<result property="SNDNG_RESULT_CODE" column="SNDNG_RESULT_CODE" />
+		<result property="DSPTCH_DT" column="DSPTCH_DT" />
+		<result property="ATCH_FILE_ID" column="ATCH_FILE_ID" />
+	</resultMap>
+
+	<resultMap class="hashmap" id="Sub0103DAO.select2.resultMap.Map">
+		<result property="RN" column="RN" />
+		<result property="MSSAGE_ID" column="MSSAGE_ID" />
+		<result property="EMAIL_CN" column="EMAIL_CN" jdbcType="varchar"
+			javaType="string" />
+		<result property="SNDR" column="SNDR" />
+		<result property="RCVER" column="RCVER" />
+		<result property="SJ" column="SJ" />
+		<result property="SNDNG_RESULT_CODE" column="SNDNG_RESULT_CODE" />
+		<result property="DSPTCH_DT" column="DSPTCH_DT" />
+		<result property="ATCH_FILE_ID" column="ATCH_FILE_ID" />
+	</resultMap>
+
+	<resultMap class="org.apache.commons.collections.map.ListOrderedMap"
+		id="Sub0103DAO.select2.resultMap.ListOrderedMap">
+		<result property="RN" column="RN" />
+		<result property="MSSAGE_ID" column="MSSAGE_ID" />
+		<result property="EMAIL_CN" column="EMAIL_CN" jdbcType="varchar"
+			javaType="string" />
+		<result property="SNDR" column="SNDR" />
+		<result property="RCVER" column="RCVER" />
+		<result property="SJ" column="SJ" />
+		<result property="SNDNG_RESULT_CODE" column="SNDNG_RESULT_CODE" />
+		<result property="DSPTCH_DT" column="DSPTCH_DT" />
+		<result property="ATCH_FILE_ID" column="ATCH_FILE_ID" />
+	</resultMap>
+
+	<select id="Sub0103DAO.select2" resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+		<include refid="Sub0103DAO.select2.select" />
+	</select>
+
+	<select id="Sub0103DAO.select2ForEgovMap" resultMap="Sub0103DAO.select2.resultMap.EgovMap">
+		<include refid="Sub0103DAO.select2.select" />
+	</select>
+
+	<select id="Sub0103DAO.select2ForMap" resultMap="Sub0103DAO.select2.resultMap.Map">
+		<include refid="Sub0103DAO.select2.select" />
+	</select>
+
+	<select id="Sub0103DAO.select2ForListOrderedMap" resultMap="Sub0103DAO.select2.resultMap.ListOrderedMap">
+		<include refid="Sub0103DAO.select2.select" />
+	</select>
+
+</sqlMap>

@@ -1,8 +1,10 @@
 package godsoft.com.sub.service.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
@@ -115,7 +117,27 @@ public class Sub0103DAO extends EgovComAbstractDAO {
 	}
 
 	public EgovMap select(Map<String, Object> vo) {
-		return (EgovMap) select("Sub0103DAO.select", vo);
+		EgovMap item = null;
+
+		try {
+			item = (EgovMap) select("Sub0103DAO.select", vo);
+			// } catch (Exception e) {
+			// logger.error("sqlMap=Sub0103DAO.select");
+			// logger.error(getClass());
+			// logger.error(e.getMessage());
+		} catch (DataAccessException e) {
+			logger.error("sqlMap=Sub0103DAO.select");
+
+			logger.error(e.getMessage());
+
+			SQLException se = (SQLException) e.getRootCause();
+
+			logger.error("errorCode=" + se.getErrorCode());
+			logger.error("message=" + se.getMessage());
+			logger.error("SQLState=" + se.getSQLState());
+		}
+
+		return item;
 	}
 
 	public EgovMap selectForEgovMap(Map<String, Object> vo) {

@@ -26,7 +26,7 @@ public class Sub0103DAOTest {
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	@Autowired
-	private Sub0103DAO Sub0103DAO;
+	private Sub0103DAO sub0103DAO;
 
 	// @Test
 	public void selectList() {
@@ -36,7 +36,7 @@ public class Sub0103DAOTest {
 		// vo.setRecordCountPerPage(10);
 		vo.setRecordCountPerPage(Integer.MAX_VALUE);
 
-		List<EgovMap> items = Sub0103DAO.selectList(vo);
+		List<EgovMap> items = sub0103DAO.selectList(vo);
 
 		debugEgovMap(items);
 	}
@@ -49,7 +49,7 @@ public class Sub0103DAOTest {
 		// vo.setRecordCountPerPage(10);
 		vo.put("recordCountPerPage", Integer.MAX_VALUE);
 
-		List<EgovMap> items = Sub0103DAO.selectList(vo);
+		List<EgovMap> items = sub0103DAO.selectList(vo);
 
 		debugEgovMap(items);
 	}
@@ -61,7 +61,7 @@ public class Sub0103DAOTest {
 		vo.put("firstIndex", 0);
 		vo.put("recordCountPerPage", Integer.MAX_VALUE);
 
-		List<EgovMap> items = Sub0103DAO.selectListMapForEgovMap(vo);
+		List<EgovMap> items = sub0103DAO.selectListMapForEgovMap(vo);
 
 		debugEgovMap(items);
 	}
@@ -73,7 +73,7 @@ public class Sub0103DAOTest {
 		vo.put("firstIndex", 0);
 		vo.put("recordCountPerPage", Integer.MAX_VALUE);
 
-		List<Sub0103VO> items = Sub0103DAO.selectListMapForVO(vo);
+		List<Sub0103VO> items = sub0103DAO.selectListMapForVO(vo);
 
 		debugVO(items);
 	}
@@ -85,7 +85,7 @@ public class Sub0103DAOTest {
 		vo.put("firstIndex", 0);
 		vo.put("recordCountPerPage", Integer.MAX_VALUE);
 
-		List<EgovMap> items = Sub0103DAO.selectListMapForResultMap(vo);
+		List<EgovMap> items = sub0103DAO.selectListMapForResultMap(vo);
 
 		debugEgovMap(items);
 	}
@@ -97,7 +97,7 @@ public class Sub0103DAOTest {
 		vo.put("firstIndex", 0);
 		vo.put("recordCountPerPage", Integer.MAX_VALUE);
 
-		List<Map<String, Object>> items = Sub0103DAO
+		List<Map<String, Object>> items = sub0103DAO
 				.selectListMapForResultMapMap(vo);
 
 		debugMap(items);
@@ -143,7 +143,7 @@ public class Sub0103DAOTest {
 		vo.put("mssageId", "1");
 		vo.put("mssageId", "201611010857171");
 
-		EgovMap item = Sub0103DAO.select(vo);
+		EgovMap item = sub0103DAO.select(vo);
 
 		logger.debug("item=" + item);
 		logger.debug("mssageId=" + item.get("mssageId"));
