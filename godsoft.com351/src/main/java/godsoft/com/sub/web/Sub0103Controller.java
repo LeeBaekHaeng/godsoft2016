@@ -36,4 +36,9 @@ public class Sub0103Controller {
 		return "godsoft/com/sub/updateFormSub0103";
 	}
 
+	@RequestMapping("/sub/updateSub0103.do")
+	public String update(@RequestParam Map<String, Object> vo, ModelMap model) {
+		return "godsoft/com/sub/updateSub0103";
+	}
+
 }

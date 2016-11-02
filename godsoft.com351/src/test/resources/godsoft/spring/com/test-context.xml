@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<import resource="classpath:egovframework/spring/com/context-aspect.xml" />
+	<import resource="classpath:egovframework/spring/com/context-common.xml" />
+	<import resource="classpath:egovframework/spring/com/context-datasource.xml" />
+	<import resource="classpath:egovframework/spring/com/context-datasource2.xml" />
+	<import
+		resource="classpath:egovframework/spring/com/context-egovuserdetailshelper.xml" />
+	<import resource="classpath:egovframework/spring/com/context-excel.xml" />
+	<import resource="classpath:egovframework/spring/com/context-loginaop.xml" />
+	<import resource="classpath:egovframework/spring/com/context-mail.xml" />
+	<import resource="classpath:egovframework/spring/com/context-privacylogaop.xml" />
+	<import resource="classpath:egovframework/spring/com/context-properties.xml" />
+	<!-- <import resource="classpath:egovframework/spring/com/context-security.xml" 
+		/> -->
+	<import resource="classpath:egovframework/spring/com/context-sqlMap.xml" />
+	<import resource="classpath:egovframework/spring/com/context-sqlMap2.xml" />
+	<import resource="classpath:egovframework/spring/com/context-syslogaop.xml" />
+	<import resource="classpath:egovframework/spring/com/context-transaction.xml" />
+	<import resource="classpath:egovframework/spring/com/context-validator.xml" />
+
+</beans>
