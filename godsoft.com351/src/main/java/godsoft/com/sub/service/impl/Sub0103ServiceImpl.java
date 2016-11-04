@@ -8,7 +8,7 @@ import org.springframework.ui.ModelMap;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-import godsoft.com.cmm.service.impl.PaginationInfoServiceImpl;
+import godsoft.com.cmm.service.impl.GodCmmServiceImpl;
 import godsoft.com.sub.service.Sub0103Service;
 
 @Service
@@ -18,16 +18,20 @@ public class Sub0103ServiceImpl extends EgovAbstractServiceImpl implements
 	@Autowired
 	private Sub0103DAO sub0103DAO;
 
+	// @Autowired
+	// private GodPaginationInfoServiceImpl paginationInfoServiceImpl;
+
 	@Autowired
-	private PaginationInfoServiceImpl paginationInfoServiceImpl;
+	private GodCmmServiceImpl godCmmService;
 
 	@Override
 	public void selectList(Map<String, Object> vo, ModelMap model) {
 		// vo.put("firstIndex", 0);
 		// vo.put("recordCountPerPage", Integer.MAX_VALUE);
 
-		PaginationInfo paginationInfo = paginationInfoServiceImpl
-				.selectListPrefix(vo);
+		// PaginationInfo paginationInfo = paginationInfoServiceImpl
+		// .selectListPrefix(vo);
+		PaginationInfo paginationInfo = godCmmService.selectListPrefix(vo);
 
 		model.addAttribute("items", sub0103DAO.selectList(vo));
 

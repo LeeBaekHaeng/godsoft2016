@@ -18,7 +18,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * 
  */
 @Service
-public class PaginationInfoServiceImpl extends EgovAbstractServiceImpl {
+public class GodPaginationInfoServiceImpl extends EgovAbstractServiceImpl {
 
 	@Autowired
 	// @Resource(name = "propertiesService")

@@ -1,4 +1,5 @@
 select
+/*+ index(COMTNAUTHORINFO COMTNAUTHORINFO_PK) */
     COMTNAUTHORINFO.*
 from COMTNAUTHORINFO /* 권한정보 */
 ;
