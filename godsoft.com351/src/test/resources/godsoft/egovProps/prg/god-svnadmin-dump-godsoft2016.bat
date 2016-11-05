@@ -1,6 +1,6 @@
 @echo off
 
-@rem Shell Name : svnadmin-dump.bat                                         	
+@rem Shell Name : god-svnadmin-dump-godsoft2016.bat                                         	
 @rem Description : svn ดýวม
 @rem Modification Information                                                				
 @rem                                                                    
