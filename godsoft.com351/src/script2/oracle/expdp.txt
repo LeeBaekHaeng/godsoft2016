@@ -1,0 +1,198 @@
+C:\Users\LeeBaekHaeng>expdp help=y
+
+Export: Release 11.2.0.1.0 - Production on 토 11월 5 21:40:36 2016
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+
+데이터 펌프 익스포트 유틸리티는 Oracle 데이터베이스 간에 데이터 객체를 전송하기
+위한 방식을
+제공합니다. 유틸리티는 다음 명령으로 호출됩니다.
+
+   예: expdp scott/tiger DIRECTORY=dmpdir DUMPFILE=scott.dmp
+
+'expdp' 명령 다음에 다양한 매개변수를 입력하여 익스포트가 실행되는 방법을
+제어할 수 있습니다. 매개변수를 지정하려면 키워드를 사용하십시오.
+
+   형식:  expdp KEYWORD=value or KEYWORD=(value1,value2,...,valueN)
+   예: expdp scott/tiger DUMPFILE=scott.dmp DIRECTORY=dmpdir SCHEMAS=scott
+               또는 T1이 분할된 테이블인 경우 TABLES=(T1:P1,T1:P2)
+
+USERID는 명령행에서 첫번째 매개변수여야 합니다.
+
+------------------------------------------------------------------------------
+
+사용 가능한 키워드가 표시되고 이 뒤에 관련 설명이 나옵니다. 기본값은 대괄호 안에
+ 나열됩니다.
+
+ATTACH
+기존 작업에 연결합니다.
+예: ATTACH=job_name
+
+COMPRESSION
+덤프 파일의 크기를 줄입니다.
+적합한 키워드 값: ALL, DATA_ONLY, [METADATA_ONLY] 및 NONE
+
+CONTENT
+로드를 취소할 데이터를 지정합니다.
+적합한 키워드 값: [ALL], DATA_ONLY 및 METADATA_ONLY
+
+DATA_OPTIONS
+데이터 층 옵션 플래그입니다.
+적합한 키워드 값: XML_CLOBS
+
+DIRECTORY
+덤프 및 로그 파일에 사용할 디렉토리 객체입니다.
+
+DUMPFILE
+대상 덤프 파일 이름[expdat.dmp]의 목록을 지정합니다.
+예: DUMPFILE=scott1.dmp, scott2.dmp, dmpdir:scott3.dmp
+
+ENCRYPTION
+덤프 파일의 일부 또는 전체를 암호화합니다.
+적합한 키워드 값: ALL, DATA_ONLY, ENCRYPTED_COLUMNS_ONLY, METADATA_ONLY 및 NONE
+
+ENCRYPTION_ALGORITHM
+암호화 수행 방식을 지정합니다.
+적합한 키워드 값: [AES128], AES192 및 AES256
+
+ENCRYPTION_MODE
+암호화 키 생성 방법입니다.
+적합한 키워드 값: DUAL, PASSWORD 및 [TRANSPARENT]
+
+ENCRYPTION_PASSWORD
+덤프 파일 내에 암호화된 데이터를 생성하기 위한 비밀번호 키입니다.
+
+ESTIMATE
+작업 예측을 계산합니다.
+적합한 키워드 값: [BLOCKS] 및 STATISTICS
+
+ESTIMATE_ONLY
+익스포트를 수행하지 않은 채 작업 예측을 계산합니다.
+
+EXCLUDE
+특정 객체 유형을 제외합니다.
+예: EXCLUDE=SCHEMA:"='HR'"
+
+FILESIZE
+각 덤프 파일의 크기를 바이트 단위로 지정합니다.
+
+FLASHBACK_SCN
+세션 스냅샷 재설정에 사용되는 SCN입니다.
+
+FLASHBACK_TIME
+가장 근접한 해당 SCN 값을 찾는 데 사용되는 시간입니다.
+
+FULL
+전체 데이터베이스를 익스포트합니다. [N]
+
+HELP
+도움말 메시지를 표시합니다. [N]
+
+INCLUDE
+특정 객체 유형을 포함합니다.
+예: INCLUDE=TABLE_DATA
+
+JOB_NAME
+생성할 익스포트 작업의 이름입니다.
+
+LOGFILE
+로그 파일 이름[export.log]을 지정합니다.
+
+NETWORK_LINK
+소스 시스템에 대한 원격 데이터베이스 링크 이름입니다.
+
+NOLOGFILE
+로그 파일을 쓰지 않습니다. [N]
+
+PARALLEL
+현재 작업에 대한 활성 작업자 수를 변경합니다.
+
+PARFILE
+매개변수 파일 이름을 지정합니다.
+
+QUERY
+테이블의 부분 집합을 익스포트하는 데 사용되는 술어 절입니다.
+예: QUERY=employees:"WHERE department_id > 10"
+
+REMAP_DATA
+데이터 변환 함수를 지정합니다.
+예: REMAP_DATA=EMP.EMPNO:REMAPPKG.EMPNO
+
+REUSE_DUMPFILES
+대상 덤프 파일이 존재하면 겹쳐 씁니다. [N]
+
+SAMPLE
+익스포트할 데이터의 백분율입니다.
+
+SCHEMAS
+익스포트할 스키마[로그인 스키마] 목록입니다.
+
+SOURCE_EDITION
+메타 데이터 추출에 사용할 버전입니다.
+
+STATUS
+작업 상태가 모니터되는 빈도(초)입니다.
+기본값 [0]은 사용 가능할 때 새 상태를 표시합니다.
+
+TABLES
+익스포트할 테이블 목록을 식별합니다.
+예: TABLES=HR.EMPLOYEES,SH.SALES:SALES_1995
+
+TABLESPACES
+익스포트할 테이블스페이스 목록을 식별합니다.
+
+TRANSPORTABLE
+전송 가능한 방식을 사용할 수 있는지 여부를 지정합니다.
+적합한 키워드 값: ALWAYS 및 [NEVER]
+
+TRANSPORT_FULL_CHECK
+모든 테이블의 저장 영역 세그먼트를 확인합니다. [N]
+
+TRANSPORT_TABLESPACES
+메타 데이터의 로드가 취소될 테이블스페이스 목록입니다.
+
+VERSION
+익스포트할 객체의 버전입니다.
+적합한 키워드 값: [COMPATIBLE], LATEST 또는 적합한 데이터베이스 버전
+
+------------------------------------------------------------------------------
+
+다음 명령은 대화식 모드에서 적합합니다.
+참고: 약어도 허용됩니다.
+
+ADD_FILE
+덤프 파일 집합에 덤프 파일을 추가합니다.
+
+CONTINUE_CLIENT
+로깅 모드로 돌아옵니다. 유휴 상태인 경우 작업이 재시작됩니다.
+
+EXIT_CLIENT
+클라이언트 세션을 종료하고 작업은 실행되도록 둡니다.
+
+FILESIZE
+이후의 ADD_FILE 명령에 대한 기본 파일 크기(바이트)입니다.
+
+HELP
+대화형 명령을 요약합니다.
+
+KILL_JOB
+작업을 분리하고 삭제합니다.
+
+PARALLEL
+현재 작업에 대한 활성 작업자 수를 변경합니다.
+
+REUSE_DUMPFILES
+대상 덤프 파일이 존재하면 겹쳐 씁니다. [N]
+
+START_JOB
+현재 작업을 시작하거나 재개합니다.
+적합한 키워드 값: SKIP_CURRENT
+
+STATUS
+작업 상태가 모니터되는 빈도(초)입니다.
+기본값 [0]은 사용 가능할 때 새 상태를 표시합니다.
+
+STOP_JOB
+작업 실행을 순서대로 종료하고 클라이언트를 종료합니다.
+적합한 키워드 값: IMMEDIATE

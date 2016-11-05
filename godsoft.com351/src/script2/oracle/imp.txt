@@ -1,0 +1,60 @@
+C:\Users\LeeBaekHaeng>imp help=y
+
+Import: Release 11.2.0.1.0 - Production on 토 11월 5 21:37:15 2016
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+
+
+IMP 명령어 뒤에 사용자 이름/비밀번호를 입력하면 임포트 시에 매개변수의
+값을 입력할 수 있도록 프롬프트를 나타나게 할 수 있습니다:
+
+     예: IMP SCOTT/TIGER
+또는, IMP 명령어 뒤에 여러 가지 인수를 입력하면 임포트의 실행 방법을
+제어할 수 있습니다. 매개변수를 지정하려면 키워드를 사용하십시오:
+
+     형식:  IMP KEYWORD=값 또는 KEYWORD=(값1,값2,...,값N)
+     예  :  IMP SCOTT/TIGER IGNORE=Y TABLES=(EMP,DEPT) FULL=N
+               또는 T1이 분할된 테이블인 경우 TABLES=(T1:P1,T1:P2)
+
+USERID 명령어 줄에 첫번째 매개변수에 있어야 합니다.
+
+키워드      설명(기본값)             키워드          설명(기본값)
+--------------------------------------------------------------------------
+USERID   사용자명/비밀번호               FULL         파일 전체 임포트 (N)
+BUFFER   데이터 버퍼의 크기          FROMUSER     소유 사용자명 목록
+FILE     입력 파일들 (EXPDAT.DMP)    TOUSER       사용자명의 목록
+SHOW     파일 목차만 목록 (N)        TABLES       테이블명 목록
+IGNORE   생성 오류 무시 (N)          RECORDLENGTH IO 레코드의 길이
+GRANTS   권한부여 임포트 (Y)         INCTYPE      증분 임포트 유형
+INDEXES  인덱스 임포트 (Y)             COMMIT       배열 삽입 커밋 (N)
+ROWS     데이터 행 임포트 (Y)        PARFILE      매개변수 파일명
+LOG      화면 출력의 로그 파일       CONSTRAINTS  제약조건을 임포트 (Y)
+DESTROY                테이블스페이스 데이터 파일 겹쳐쓰기(N)
+INDEXFILE              지정된 파일에 테이블/인덱스 정보 쓰기
+SKIP_UNUSABLE_INDEXES  사용되지 않은 인덱스들의 유지를 건너뜁니다 (N)
+FEEDBACK               매 x행마다 진행 상황 표시(0)
+TOID_NOVALIDATE        지정된 유형 ID 검증 건너뛰기
+FILESIZE               각 덤프 파일의 최대 크기
+STATISTICS             미리 계산된 통계 임포트(항상)
+RESUMABLE              공간 관련 오류가 발생하면 일시 중지됨(N)
+RESUMABLE_NAME         재개 가능한 명령문을 식별하는 데 사용되는 텍스트 문자열
+RESUMABLE_TIMEOUT      RESUMABLE 대기 시간
+COMPILE                프로시저, 패키지 및 함수 컴파일(Y)
+STREAMS_CONFIGURATION  일반 스트림 메타 데이터 임포트(Y)
+STREAMS_INSTANTIATION  스트림 인스턴스화 메타 데이터 임포트(N)
+DATA_ONLY              데이터만 임포트(N)
+
+이와 같이 키워드만이 이동가능한 테이블스페이스에 적용할 수 있습니다
+TRANSPORT_TABLESPACE 이동가능한 테이블스페이스 메타데이터을 임포트합니다 (N)
+TABLESPACES 데이터베이스안에 테이블스페이스가 이동되었습니다
+DATAFILES 데이터베이스안에 데이터 파일들이 이동되었습니다
+TTS_OWNERS 이동가능한 테이블스페이스 설정에 데이터를 소우하고 있는 사용자
+
+임포트가 경고 없이 정상적으로 종료되었습니다.
+
+imp system/패스워드 file=file.dmp log=file.dmp.imp.log INDEXFILE=file.dmp.sql
+
+imp system/패스워드 file=file.dmp log=file.dmp.imp.log INDEXFILE=file.dmp.sql FROMUSER=us_com351obj TOUSER=us_com351obj
+
+imp system/패스워드 file=file.dmp log=file.dmp.imp.log full=y
