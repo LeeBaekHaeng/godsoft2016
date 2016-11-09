@@ -16,6 +16,11 @@ from COMTNAUTHORROLERELATE /* 권한롤관계 */
 ;
 
 select
+    COM_TN_AUTHOR_ROLE_RELATE.*
+from COMTNAUTHORROLERELATE COM_TN_AUTHOR_ROLE_RELATE /* 권한롤관계 */
+;
+
+select
     rownum as rn
 /* 권한롤관계 */
     , COMTNAUTHORROLERELATE.*
