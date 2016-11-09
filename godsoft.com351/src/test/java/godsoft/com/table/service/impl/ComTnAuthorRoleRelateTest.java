@@ -21,7 +21,7 @@ import egovframework.rte.fdl.excel.util.EgovExcelUtil;
 // "classpath:egovframework/spring/com/**/context-*.xml",
 // "classpath:godsoft/spring/com/**/context-*.xml" })
 @ContextConfiguration(locations = { "classpath:godsoft/spring/com/context-excel.xml" })
-public class comTnAuthorRoleRelateTest {
+public class ComTnAuthorRoleRelateTest {
 
 	protected Logger egovLogger = LoggerFactory.getLogger(getClass());
 
