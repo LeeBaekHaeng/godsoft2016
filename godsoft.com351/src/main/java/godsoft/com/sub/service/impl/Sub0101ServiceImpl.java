@@ -6,7 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import godsoft.com.cmm.service.impl.GodCmmServiceImpl;
+import godsoft.com.cmm.service.impl.CmmServiceImpl;
 import godsoft.com.sub.service.Sub0101Service;
 import godsoft.com.sub.service.Sub0101VO;
 
@@ -15,7 +15,7 @@ public class Sub0101ServiceImpl extends EgovAbstractServiceImpl implements
 		Sub0101Service {
 
 	@Autowired
-	private GodCmmServiceImpl godCmmServiceImpl;
+	private CmmServiceImpl godCmmServiceImpl;
 
 	@Override
 	public void selectList(Sub0101VO vo, ModelMap model) throws Exception {

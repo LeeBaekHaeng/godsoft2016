@@ -22,14 +22,14 @@ public class Sub0103Controller {
 	@Autowired
 	private Sub0103Service sub0103Service;
 
-	@RequestMapping("/selectSub0103List.do")
+	@RequestMapping("/sub/selectSub0103List.do")
 	public String selectList(@RequestParam Map<String, Object> vo,
 			ModelMap model) throws Exception {
 		sub0103Service.selectList(vo, model);
 		return "godsoft/com/sub/selectSub0103List";
 	}
 
-	@RequestMapping("/updateFormSub0103.do")
+	@RequestMapping("/sub/updateFormSub0103.do")
 	public String updateForm(@RequestParam Map<String, Object> vo,
 			ModelMap model) {
 		sub0103Service.select(vo, model);

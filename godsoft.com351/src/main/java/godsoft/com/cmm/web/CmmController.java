@@ -1,6 +1,6 @@
 package godsoft.com.cmm.web;
 
-import godsoft.com.cmm.service.GodCmmService;
+import godsoft.com.cmm.service.CmmService;
 
 import java.util.Map;
 
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CmmController {
 
 	@Autowired
-	private GodCmmService godCmmService;
+	private CmmService godCmmService;
 
 	@RequestMapping("/cmm/selectMenuList.do")
 	public String selectMenuList(@RequestParam Map<String, Object> vo,

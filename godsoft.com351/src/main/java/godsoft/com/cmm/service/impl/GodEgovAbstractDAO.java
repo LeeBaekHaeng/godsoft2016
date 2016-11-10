@@ -28,11 +28,10 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * 기본키 조회(단건)
 	 * 
 	 * @param vo
-	 * @return
-	 * @throws Exception
+	 * @return @
 	 */
 	@SuppressWarnings("unchecked")
-	public T selectKey(T vo) throws Exception {
+	public T selectKey(T vo) {
 		return (T) select(queryId.get("selectKey"), vo);
 	}
 
@@ -40,10 +39,9 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * 등록
 	 * 
 	 * @param vo
-	 * @return
-	 * @throws Exception
+	 * @return @
 	 */
-	public int insert(T vo) throws Exception {
+	public int insert(T vo) {
 		return update(queryId.get("insert"), vo);
 	}
 
@@ -51,11 +49,10 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * 조회(단건)
 	 * 
 	 * @param vo
-	 * @return
-	 * @throws Exception
+	 * @return @
 	 */
 	@SuppressWarnings("unchecked")
-	public T select(T vo) throws Exception {
+	public T select(T vo) {
 		return (T) select(queryId.get("select"), vo);
 	}
 
@@ -63,11 +60,10 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * 조회(멀티건)
 	 * 
 	 * @param vo
-	 * @return
-	 * @throws Exception
+	 * @return @
 	 */
 	@SuppressWarnings("unchecked")
-	public List<E> selectList(T vo) throws Exception {
+	public List<E> selectList(T vo) {
 		return (List<E>) list(queryId.get("selectListMap"), vo);
 	}
 
@@ -75,10 +71,9 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * 카운트
 	 * 
 	 * @param vo
-	 * @return
-	 * @throws Exception
+	 * @return @
 	 */
-	public int selectListCount(T vo) throws Exception {
+	public int selectListCount(T vo) {
 		return (int) select(queryId.get("selectListCount"), vo);
 	}
 
@@ -86,10 +81,9 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * 수정
 	 * 
 	 * @param vo
-	 * @return
-	 * @throws Exception
+	 * @return @
 	 */
-	public int update(T vo) throws Exception {
+	public int update(T vo) {
 		return update(queryId.get("update"), vo);
 	}
 
@@ -97,10 +91,9 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * 삭제
 	 * 
 	 * @param vo
-	 * @return
-	 * @throws Exception
+	 * @return @
 	 */
-	public int delete(T vo) throws Exception {
+	public int delete(T vo) {
 		return delete(queryId.get("delete"), vo);
 	}
 
@@ -108,10 +101,9 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * 등록/수정
 	 * 
 	 * @param vo
-	 * @return
-	 * @throws Exception
+	 * @return @
 	 */
-	public int merge(T vo) throws Exception {
+	public int merge(T vo) {
 		return update(queryId.get("merge"), vo);
 	}
 
@@ -119,10 +111,9 @@ public class GodEgovAbstractDAO<T, E> extends EgovComAbstractDAO {
 	 * 등록/수정/삭제
 	 * 
 	 * @param vo
-	 * @return
-	 * @throws Exception
+	 * @return @
 	 */
-	public int multi(T vo) throws Exception {
+	public int multi(T vo) {
 		return update(queryId.get("multi"), vo);
 	}
 

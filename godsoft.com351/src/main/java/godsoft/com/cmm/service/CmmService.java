@@ -12,7 +12,7 @@ import egovframework.com.sym.mnu.mpm.service.MenuManageVO;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
-public interface GodCmmService {
+public interface CmmService {
 
 	String mergeFileInfs(String atchFileId, String KeyStr, String storePath,
 			MultipartHttpServletRequest request) throws Exception;

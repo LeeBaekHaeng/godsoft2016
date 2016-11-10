@@ -8,7 +8,7 @@ import org.springframework.ui.ModelMap;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-import godsoft.com.cmm.service.impl.GodCmmServiceImpl;
+import godsoft.com.cmm.service.impl.CmmServiceImpl;
 import godsoft.com.sub.service.Sub0103Service;
 
 @Service
@@ -22,7 +22,7 @@ public class Sub0103ServiceImpl extends EgovAbstractServiceImpl implements
 	// private GodPaginationInfoServiceImpl paginationInfoServiceImpl;
 
 	@Autowired
-	private GodCmmServiceImpl godCmmService;
+	private CmmServiceImpl godCmmService;
 
 	@Override
 	public void selectList(Map<String, Object> vo, ModelMap model) {

@@ -20,11 +20,11 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import egovframework.rte.fdl.property.EgovPropertyService;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-import godsoft.com.cmm.service.GodCmmService;
+import godsoft.com.cmm.service.CmmService;
 
 @Service
-public class GodCmmServiceImpl extends EgovAbstractServiceImpl implements
-		GodCmmService {
+public class CmmServiceImpl extends EgovAbstractServiceImpl implements
+		CmmService {
 
 	@Resource(name = "propertiesService")
 	protected EgovPropertyService propertiesService;

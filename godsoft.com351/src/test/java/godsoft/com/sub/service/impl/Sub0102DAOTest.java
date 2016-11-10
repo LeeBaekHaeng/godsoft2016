@@ -21,9 +21,10 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.com.sub.service.Sub0102VO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {
-		"classpath:egovframework/spring/com/**/context-*.xml",
-		"classpath:godsoft/spring/com/**/context-*.xml" })
+// @ContextConfiguration(locations = {
+// "classpath:egovframework/spring/com/**/context-*.xml",
+// "classpath:godsoft/spring/com/**/context-*.xml" })
+@ContextConfiguration(locations = { "classpath:godsoft/spring/com/test-dao-context.xml" })
 public class Sub0102DAOTest {
 
 	// protected final Log logger = LogFactory.getLog(getClass());
@@ -37,9 +38,9 @@ public class Sub0102DAOTest {
 
 	@Test
 	public void test() throws Exception {
-		// selectKey();
+		selectKey();
 		// insert();
-		update();
+		// update();
 		// selectList();
 
 		// selectListMap();

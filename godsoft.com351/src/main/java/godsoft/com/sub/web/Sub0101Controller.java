@@ -21,19 +21,19 @@ public class Sub0101Controller {
 	@Autowired
 	private Sub0101Service sub0101Service;
 
-	@RequestMapping("/selectSub0101List.do")
+	@RequestMapping("/sub/selectSub0101List.do")
 	public String selectList(Sub0101VO vo, ModelMap model) throws Exception {
 		return "godsoft/com/sub/selectSub0101List";
 	}
 
-	@RequestMapping("/insertFormMultipartSub0101.do")
+	@RequestMapping("/sub/insertFormMultipartSub0101.do")
 	public String insertFormMultipart(Sub0101VO vo, ModelMap model)
 			throws Exception {
 		sub0101Service.insertFormMultipart(vo, model);
 		return "godsoft/com/sub/insertFormMultipartSub0101";
 	}
 
-	@RequestMapping("/insertMultipartSub0101.do")
+	@RequestMapping("/sub/insertMultipartSub0101.do")
 	public String insertMultipart(Sub0101VO vo, ModelMap model,
 			MultipartHttpServletRequest request) throws Exception {
 		sub0101Service.insertMultipart(vo, model, request);

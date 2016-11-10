@@ -39,7 +39,7 @@ public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO, EgovMap> {
 	}
 
 	@Override
-	public Sub0102VO selectKey(Sub0102VO vo) throws Exception {
+	public Sub0102VO selectKey(Sub0102VO vo) {
 		return super.selectKey(vo);
 	}
 
@@ -47,60 +47,60 @@ public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO, EgovMap> {
 	 * 서브0102 등록
 	 */
 	@Override
-	public int insert(Sub0102VO vo) throws Exception {
+	public int insert(Sub0102VO vo) {
 		return super.insert(vo);
 	}
 
 	@Override
-	public Sub0102VO select(Sub0102VO vo) throws Exception {
+	public Sub0102VO select(Sub0102VO vo) {
 		return super.select(vo);
 	}
 
 	@Override
-	public List<EgovMap> selectList(Sub0102VO vo) throws Exception {
+	public List<EgovMap> selectList(Sub0102VO vo) {
 		return super.selectList(vo);
 	}
 
 	@Override
-	public int selectListCount(Sub0102VO vo) throws Exception {
+	public int selectListCount(Sub0102VO vo) {
 		return super.selectListCount(vo);
 	}
 
 	@Override
-	public int update(Sub0102VO vo) throws Exception {
+	public int update(Sub0102VO vo) {
 		return super.update(vo);
 	}
 
-	public int updateIsNotEmpty(Sub0102VO vo) throws Exception {
+	public int updateIsNotEmpty(Sub0102VO vo) {
 		return update("Sub0102DAO.updateIsNotEmpty", vo);
 	}
 
 	@Override
-	public int delete(Sub0102VO vo) throws Exception {
+	public int delete(Sub0102VO vo) {
 		return super.delete(vo);
 	}
 
 	@Override
-	public int merge(Sub0102VO vo) throws Exception {
+	public int merge(Sub0102VO vo) {
 		return super.merge(vo);
 	}
 
 	@Override
-	public int multi(Sub0102VO vo) throws Exception {
+	public int multi(Sub0102VO vo) {
 		return super.multi(vo);
 	}
 
 	// 추가
 
-	public Object insert2(Sub0102VO vo) throws Exception {
+	public Object insert2(Sub0102VO vo) {
 		return insert("Sub0102DAO.insert2", vo);
 	}
 
-	public Object insert3(Map<String, Object> vo) throws Exception {
+	public Object insert3(Map<String, Object> vo) {
 		return insert("Sub0102DAO.insert3", vo);
 	}
 
-	// public int insert2(Sub0102VO vo) throws Exception {
+	// public int insert2(Sub0102VO vo) {
 	// int insert2 = 0;
 	//
 	// String selectKey = (String) super.insert(vo);
@@ -111,18 +111,17 @@ public class Sub0102DAO extends GodEgovAbstractDAO<Sub0102VO, EgovMap> {
 	// }
 
 	@SuppressWarnings("unchecked")
-	public List<EgovMap> selectListMap(Sub0102VO vo) throws Exception {
+	public List<EgovMap> selectListMap(Sub0102VO vo) {
 		return (List<EgovMap>) list(queryId.get("selectListMap"), vo);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Sub0102VO> selectListType(Sub0102VO vo) throws Exception {
+	public List<Sub0102VO> selectListType(Sub0102VO vo) {
 		return (List<Sub0102VO>) list(queryId.get("selectListType"), vo);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<EgovMap> selectListMapForMap(Map<String, Object> vo)
-			throws Exception {
+	public List<EgovMap> selectListMapForMap(Map<String, Object> vo) {
 		return (List<EgovMap>) list(queryId.get("selectListMapForMap"), vo);
 	}
 
