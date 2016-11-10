@@ -12,7 +12,7 @@
 
 <!-- 부트스트랩 -->
 <link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+	href="${pageContext.request.contextPath}/web/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
@@ -23,6 +23,12 @@
     <![endif]-->
 </head>
 <body>
+
+	${initParam['godWebPath']} ${initParam.godWebPath}
+
+	<pre>${requestScope}</pre>
+
+	${requestScope.contextPath} ${requestScope['contextPath']}
 
 	<div class="container-fluid">
 
@@ -47,10 +53,65 @@
 
 	</div>
 
+	<form>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Email address</label> <input
+				type="email" class="form-control" id="exampleInputEmail1"
+				placeholder="Email">
+		</div>
+		<label for="exampleInputEmail12">Email address</label> <input
+			type="email" class="form-control" id="exampleInputEmail12"
+			placeholder="Email">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Password</label> <input
+				type="password" class="form-control" id="exampleInputPassword1"
+				placeholder="Password">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputFile">File input</label> <input type="file"
+				id="exampleInputFile">
+			<p class="help-block">Example block-level help text here.</p>
+		</div>
+		<div class="checkbox">
+			<label> <input type="checkbox"> Check me out
+			</label>
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/web/jquery-3.1.1.min.js"></script>
 	<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
 	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		src="${pageContext.request.contextPath}/web/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" language="JavaScript"
+		src="${pageContext.request.contextPath}/web/jquery.i18n.properties.min.js"></script>
+
+	<script>
+		// 		jQuery.i18n.properties({
+		// 			name : 'Messages',
+		// 			callback : function() {
+		// 				alert(one.two.three);
+		// 			}
+		// 		});
+
+		jQuery.i18n.properties({
+			name : 'message-common',
+			path : 'test/',
+			mode : 'both',
+			callback : function() {
+				$("#exampleInputEmail1").val(fail.common.msg);
+
+				// 				$("#exampleInputEmail12").val($.i18n.prop("fail.common.msg"));
+			}
+		});
+
+		$("#exampleInputEmail12").val($.i18n.prop("fail.common.msg"));
+		// 		$("#exampleInputEmail12").val($.i18n.map['fail.common.msg']);
+	</script>
+
 </body>
 </html>

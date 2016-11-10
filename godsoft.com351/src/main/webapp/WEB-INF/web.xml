@@ -275,4 +275,9 @@
       <location>/code500.jsp</location>
     </error-page>
 
+    <context-param>
+        <param-name>godWebPath</param-name>
+        <param-value>/web</param-value>
+    </context-param>
+
 </web-app>

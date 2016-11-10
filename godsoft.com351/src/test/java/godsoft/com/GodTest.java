@@ -7,8 +7,14 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 
 public class GodTest {
+
+	protected Logger egovLogger = LoggerFactory.getLogger(getClass());
 
 	// @Test
 	public void test() {
@@ -69,7 +75,7 @@ public class GodTest {
 	/**
 	 * svnadmin-dump.bat
 	 */
-	@Test
+	// @Test
 	public void test2() {
 		StringBuffer sb = new StringBuffer();
 		StringBuffer sb2 = new StringBuffer();
@@ -104,6 +110,56 @@ public class GodTest {
 		// System.out.println(sb);
 		// System.out.println(sb2);
 		System.out.println(sb3);
+	}
+
+	@Test
+	public void test3() throws Exception {
+		Resource resource = new FileSystemResource("./");
+
+		egovLogger.debug("resource=" + resource);
+		egovLogger.debug("resource=" + resource.getFile().getCanonicalPath());
+
+		String pathname = resource.getFile().getCanonicalPath()
+				+ "/src/main/resources/egovframework/spring/com";
+
+		egovLogger.debug("pathname=" + pathname);
+
+		String pathname2 = pathname.replaceAll("/", "\\\\");
+
+		egovLogger.debug("pathname2=" + pathname2);
+
+		File directory = new File(pathname);
+		String[] extensions = { "xml" };
+		boolean recursive = true;
+
+		Collection<File> listFiles = FileUtils.listFiles(directory, extensions,
+				recursive);
+
+		StringBuffer sb = new StringBuffer();
+
+		for (File listFile : listFiles) {
+			// egovLogger.debug("listFile=" + listFile);
+
+			String canonicalPath = listFile.getCanonicalPath();
+
+			egovLogger.debug("canonicalPath=" + canonicalPath);
+
+			String name = listFile.getName();
+
+			egovLogger.debug("name=" + name);
+
+			if (canonicalPath.indexOf("idgn") == -1) {
+				sb.append("<import resource=\"classpath:egovframework/spring/com/"
+						+ name + "\" />");
+			} else {
+				sb.append("<import resource=\"classpath:egovframework/spring/com/idgn/"
+						+ name + "\" />");
+			}
+
+			sb.append("\n");
+		}
+
+		egovLogger.debug(sb.toString());
 	}
 
 }
