@@ -6,20 +6,32 @@
 	<import resource="classpath:egovframework/spring/com/context-aspect.xml" />
 	<import resource="classpath:egovframework/spring/com/context-common.xml" />
 	<import resource="classpath:egovframework/spring/com/context-datasource.xml" />
-	<import resource="classpath:egovframework/spring/com/context-datasource2.xml" />
+	<!-- <import resource="classpath:egovframework/spring/com/context-datasource2.xml" 
+		/> -->
 	<import
 		resource="classpath:egovframework/spring/com/context-egovuserdetailshelper.xml" />
 	<import resource="classpath:egovframework/spring/com/context-excel.xml" />
-	<import resource="classpath:egovframework/spring/com/context-loginaop.xml" />
+	<!-- <import resource="classpath:egovframework/spring/com/context-loginaop.xml" 
+		/> -->
 	<import resource="classpath:egovframework/spring/com/context-mail.xml" />
-	<import resource="classpath:egovframework/spring/com/context-privacylogaop.xml" />
+	<!-- <import resource="classpath:egovframework/spring/com/context-privacylogaop.xml" 
+		/> -->
 	<import resource="classpath:egovframework/spring/com/context-properties.xml" />
 	<!-- <import resource="classpath:egovframework/spring/com/context-security.xml" 
 		/> -->
 	<import resource="classpath:egovframework/spring/com/context-sqlMap.xml" />
-	<import resource="classpath:egovframework/spring/com/context-sqlMap2.xml" />
-	<import resource="classpath:egovframework/spring/com/context-syslogaop.xml" />
+	<!-- <import resource="classpath:egovframework/spring/com/context-sqlMap2.xml" 
+		/> -->
+	<!-- <import resource="classpath:egovframework/spring/com/context-syslogaop.xml" 
+		/> -->
 	<import resource="classpath:egovframework/spring/com/context-transaction.xml" />
-	<import resource="classpath:egovframework/spring/com/context-validator.xml" />
+	<!-- <import resource="classpath:egovframework/spring/com/context-validator.xml" 
+		/> -->
+
+	<import resource="classpath:egovframework/spring/com/idgn/context-idgn-File.xml" />
+	<import
+		resource="classpath:egovframework/spring/com/idgn/context-idgn-MailMsg.xml" />
+	<import
+		resource="classpath:egovframework/spring/com/idgn/context-idgn-RestDe.xml" />
 
 </beans>
