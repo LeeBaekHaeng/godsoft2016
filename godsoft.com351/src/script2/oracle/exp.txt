@@ -48,3 +48,6 @@ TRANSPORT_TABLESPACE 이동 가능한 테이블스페이스 메타 데이터 익스포트(N)
 TEMPLATE             iAS 모드 익스포트를 호출하는 템플리트 이름
 
 익스포트가 경고 없이 정상적으로 종료되었습니다.
+
+전체 파일 익스포트
+EXP system/패스워드@192.168.0.1:1521/orcl FILE=god_2016-11-11.dmp LOG=god_2016-11-11.dmp.log FULL=y
