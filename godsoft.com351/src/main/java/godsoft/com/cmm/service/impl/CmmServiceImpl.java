@@ -21,6 +21,7 @@ import egovframework.rte.fdl.property.EgovPropertyService;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import godsoft.com.cmm.service.CmmService;
+import godsoft.com.cmm.service.CmmVO;
 
 @Service
 public class CmmServiceImpl extends EgovAbstractServiceImpl implements
@@ -88,6 +89,30 @@ public class CmmServiceImpl extends EgovAbstractServiceImpl implements
 		vo.put("authorCode", "ROLE_USER");
 
 		model.addAttribute("items", godMenuServiceImpl.selectList(vo));
+	}
+
+	@Override
+	public void mergeFileInfs(CmmVO vo, ModelMap model,
+			MultipartHttpServletRequest request) {
+		String atchFileId = vo.getAtchFileId();
+		String keyStr = "GOD_";
+		String storePath = "Globals.fileStorePath.god";
+
+		if ("GOD".equals(vo.getKeyStr())) {
+			keyStr = "GOD_";
+			storePath = "Globals.fileStorePath.god";
+		} else {
+			keyStr = "";
+			storePath = "";
+		}
+
+		try {
+			atchFileId = mergeFileInfs(atchFileId, keyStr, storePath, request);
+		} catch (Exception e) {
+			egovLogger.error(e.getMessage());
+		}
+
+		model.addAttribute("atchFileId", atchFileId);
 	}
 
 }

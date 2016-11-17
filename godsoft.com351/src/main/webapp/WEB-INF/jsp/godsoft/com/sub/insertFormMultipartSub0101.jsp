@@ -33,6 +33,14 @@
 			value="FILE_000000000000232">
 
 		<button type="submit">첨부파일 업로드</button>
+
+		<input type="hidden" name="attchFileId" id="attchFileId">
+
+		<input type="hidden" name="keyStr" value="GOD">
+
+		<input type="file" name="first_file_element" id="first_file_element">
+
+		<div id="files_list"></div>
 	</form:form>
 
 	<%-- 	<c:import url="/cmm/fms/selectFileInfs.do"> --%>
@@ -86,6 +94,12 @@
 
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/js/vendor/jquery/jquery.form.min.js"></script>
+
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/egovframework/com/cmm/fms/EgovMultiFile.js"></script>
+
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/godsoft/com/cmm/MultiSelector.js"></script>
 
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/js/godsoft/com/sub/insertFormMultipartSub0101.js"></script>

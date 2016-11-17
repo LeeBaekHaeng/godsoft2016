@@ -6,4 +6,7 @@ function fn_insertFormMultipartSub0101_onload() {
 }
 
 function fn_insertFormMultipartSub0101_insertMultipartSub0101() {
+	fn_MultiSelector_ajaxSubmit2({
+		formId : "#CmmVO"
+	});
 }

@@ -29,4 +29,7 @@ public interface CmmService {
 
 	void selectMenuList(Map<String, Object> vo, ModelMap model);
 
+	void mergeFileInfs(CmmVO vo, ModelMap model,
+			MultipartHttpServletRequest request);
+
 }
