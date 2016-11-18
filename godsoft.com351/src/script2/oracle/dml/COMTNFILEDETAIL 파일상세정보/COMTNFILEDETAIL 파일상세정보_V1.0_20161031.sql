@@ -1,8 +1,8 @@
 select
 --    /*+ index(COMTNFILEDETAIL COMTNFILEDETAIL_PK) */
-    /*+ index_desc(COMTNFILEDETAIL COMTNFILEDETAIL_PK) */
+    /*+ index_desc(COM_TN_FILE_DETAIL COMTNFILEDETAIL_PK) */
     *
-from COMTNFILEDETAIL /* 파일상세정보 */
+from COMTNFILEDETAIL COM_TN_FILE_DETAIL /* 파일상세정보 */
 where 1 = 1
 --    and ATCH_FILE_ID in (
 --        ''
@@ -16,7 +16,7 @@ where 1 = 1
 --        or FILE_SN > 0
 --    )
 --    and FILE_SN is not null
---    and FILE_SN > 0
+    and FILE_SN > 0
 ;
 
 select
