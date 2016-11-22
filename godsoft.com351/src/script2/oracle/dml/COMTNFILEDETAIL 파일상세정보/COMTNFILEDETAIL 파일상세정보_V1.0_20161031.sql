@@ -10,13 +10,13 @@ where 1 = 1
 ----        , 'FILE_000000000000211'
 --        , 'FILE_000000000000221'
 --    )
---    and ATCH_FILE_ID = 'FILE_000000000000201'
+    and ATCH_FILE_ID = 'FILE_000000000000790'
 --    and (
 --        FILE_SN = 0
 --        or FILE_SN > 0
 --    )
 --    and FILE_SN is not null
-    and FILE_SN > 0
+--    and FILE_SN > 0
 ;
 
 select

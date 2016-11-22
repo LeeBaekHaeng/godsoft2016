@@ -71,3 +71,21 @@ where 1 = 1
     and COMTCCMMNDETAILCODE.CODE_ID = 'COM001' /* 공통상세코드.코드ID */
     and COMTCCMMNDETAILCODE.FRST_REGISTER_ID = 'SYSTEM2' /* 공통상세코드.최초등록자ID */
 ;
+
+select
+    *
+from COMTCCMMNDETAILCODE COM_TC_CMMN_DETAIL_CODE
+;
+
+select
+/*+ index(CMMN_DETAIL_CODE COMTCCMMNDETAILCODE_PK) */
+    *
+from COMTCCMMNDETAILCODE CMMN_DETAIL_CODE
+where 1 = 1
+    and CODE_ID = 'COM001'
+;
+
+update COMTCCMMNDETAILCODE set CODE_DC = null
+where 1 = 1
+    and CODE_ID = 'COM001'
+;

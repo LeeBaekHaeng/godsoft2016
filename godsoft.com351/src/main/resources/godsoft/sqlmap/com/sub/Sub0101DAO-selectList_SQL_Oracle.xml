@@ -38,6 +38,7 @@ select
     , LAST_UPDUSR_ID /* 공통상세코드.최종수정자ID */
 from (select rownum rn, tb.* from (
 select
+/*+ index(COMTCCMMNDETAILCODE COMTCCMMNDETAILCODE_PK) */
     COMTCCMMNDETAILCODE.CODE_ID /* 공통상세코드.코드ID */
     , COMTCCMMNDETAILCODE.CODE /* 공통상세코드.코드 */
     , COMTCCMMNDETAILCODE.CODE_NM /* 공통상세코드.코드명 */

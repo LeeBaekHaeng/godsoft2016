@@ -26,6 +26,33 @@ public class Sub0101VO extends ComDefaultVO {
 
 	private FileVO fileVO = new FileVO();
 
+	// /** COMTCCMMNDETAILCODE.CODE_ID, 공통상세코드.코드ID */
+	// private String codeId;
+	//
+	// /** COMTCCMMNDETAILCODE.CODE, 공통상세코드.코드 */
+	// private String code;
+
+	/** COMTCCMMNDETAILCODE.CODE_NM, 공통상세코드.코드명 */
+	private String codeNm;
+
+	/** COMTCCMMNDETAILCODE.CODE_DC, 공통상세코드.코드설명 */
+	private String codeDc;
+
+	// /** COMTCCMMNDETAILCODE.USE_AT, 공통상세코드.사용여부 */
+	// private String useAt;
+
+	/** COMTCCMMNDETAILCODE.FRST_REGIST_PNTTM, 공통상세코드.최초등록시점 */
+	private String frstRegistPnttm;
+
+	/** COMTCCMMNDETAILCODE.FRST_REGISTER_ID, 공통상세코드.최초등록자ID */
+	private String frstRegisterId;
+
+	/** COMTCCMMNDETAILCODE.LAST_UPDT_PNTTM, 공통상세코드.최종수정시점 */
+	private String lastUpdtPnttm;
+
+	/** COMTCCMMNDETAILCODE.LAST_UPDUSR_ID, 공통상세코드.최종수정자ID */
+	private String lastUpdusrId;
+
 	/**
 	 * COMTCCMMNDETAILCODE.CODE_ID 공통상세코드.코드ID 값읽기
 	 * 
@@ -76,6 +103,54 @@ public class Sub0101VO extends ComDefaultVO {
 
 	public void setFileVO(FileVO fileVO) {
 		this.fileVO = fileVO;
+	}
+
+	public String getCodeNm() {
+		return codeNm;
+	}
+
+	public void setCodeNm(String codeNm) {
+		this.codeNm = codeNm;
+	}
+
+	public String getCodeDc() {
+		return codeDc;
+	}
+
+	public void setCodeDc(String codeDc) {
+		this.codeDc = codeDc;
+	}
+
+	public String getFrstRegistPnttm() {
+		return frstRegistPnttm;
+	}
+
+	public void setFrstRegistPnttm(String frstRegistPnttm) {
+		this.frstRegistPnttm = frstRegistPnttm;
+	}
+
+	public String getFrstRegisterId() {
+		return frstRegisterId;
+	}
+
+	public void setFrstRegisterId(String frstRegisterId) {
+		this.frstRegisterId = frstRegisterId;
+	}
+
+	public String getLastUpdtPnttm() {
+		return lastUpdtPnttm;
+	}
+
+	public void setLastUpdtPnttm(String lastUpdtPnttm) {
+		this.lastUpdtPnttm = lastUpdtPnttm;
+	}
+
+	public String getLastUpdusrId() {
+		return lastUpdusrId;
+	}
+
+	public void setLastUpdusrId(String lastUpdusrId) {
+		this.lastUpdusrId = lastUpdusrId;
 	}
 
 }

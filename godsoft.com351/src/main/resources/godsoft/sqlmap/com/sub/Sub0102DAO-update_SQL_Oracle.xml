@@ -20,7 +20,8 @@ where 1 = 1
 ]]>
 	</update>
 
-	<update id="Sub0102DAO.updateIsNotEmpty" parameterClass="godsoft.com.sub.service.Sub0102VO">
+	<!-- <update id="Sub0102DAO.updateIsNotEmpty" parameterClass="godsoft.com.sub.service.Sub0102VO"> -->
+	<update id="Sub0102DAO.updateIsNotEmpty">
 <![CDATA[
 /*
 서브0102 수정
