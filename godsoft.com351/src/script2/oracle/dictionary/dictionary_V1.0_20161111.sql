@@ -51,3 +51,25 @@ COM_TC_ADMINIST_CODE_RECPTN_LOG
 ComTcAdministCodeRecptnLog
 AdministCodeRecptnLog
 */
+
+select
+    *
+from ALL_INDEXES
+where 1 = 1
+    and OWNER = 'TEST'
+    and TABLE_NAME = 'COMTNINDVDLPGEESTBS'
+;
+
+select
+    *
+from V$OBJECT_USAGE
+;
+
+select
+    *
+from ALL_CONSTRAINTS
+where 1 = 1
+    and OWNER = 'TEST'
+    and TABLE_NAME = 'COMTNINDVDLPGEESTBS'
+;
+

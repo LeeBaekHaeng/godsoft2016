@@ -82,3 +82,18 @@ select
     count(*) as cnt
 from COMTCADMINISTCODE /* 행정코드 */
 ;
+
+/*
+시도명
+CTPRV_NM
+명V100
+
+행정코드 시도명
+ADMINIST_CODE_CTPRV_NM
+
+시도약어명
+CTPRV_ABBRV_NM
+
+행정코드 시도약어명
+ADMINIST_CODE_CTPRV_ABBRV_NM
+*/

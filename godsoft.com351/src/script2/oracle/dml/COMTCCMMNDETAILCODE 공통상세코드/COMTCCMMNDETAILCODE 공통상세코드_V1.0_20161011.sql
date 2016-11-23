@@ -89,3 +89,6 @@ update COMTCCMMNDETAILCODE set CODE_DC = null
 where 1 = 1
     and CODE_ID = 'COM001'
 ;
+
+insert into COMTCCMMNDETAILCODE (CODE_ID, CODE, CODE_NM, CODE_DC, USE_AT, FRST_REGIST_PNTTM)
+values ('GOD001', '01', '备盒内靛', '备盒内靛', 'Y', sysdate);
