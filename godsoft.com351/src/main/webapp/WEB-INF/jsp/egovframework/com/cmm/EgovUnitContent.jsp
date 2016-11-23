@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%-- ${GodGlobals.WEB_PATH} --%>
+
+${contextPath}
+<%-- ${GodGlobals.} --%>
+<%-- ${GodGlobals.CONTEXT_PATH} --%>
 	<c:if test="${loginVO != null}">
 		${loginVO.name }님 환영합니다. <a href="${pageContext.request.contextPath }/uat/uia/actionLogout.do">로그아웃</a>
 	</c:if>

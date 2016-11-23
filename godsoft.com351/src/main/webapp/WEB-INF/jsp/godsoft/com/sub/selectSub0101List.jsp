@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -24,7 +24,14 @@
 </head>
 <body>
 
-	${initParam['godWebPath']} ${initParam.godWebPath}
+	<ol>
+		<c:forEach items="${ROLE_USER}" var="item">
+			<li>${item.menuNm}</li>
+		</c:forEach>
+	</ol>
+
+	${GodGlobals} ${contextPath} ${initParam['godWebPath']}
+	${initParam.godWebPath}
 
 	<pre>${requestScope}</pre>
 
