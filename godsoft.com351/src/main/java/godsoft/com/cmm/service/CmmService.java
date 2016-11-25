@@ -32,4 +32,6 @@ public interface CmmService {
 	void mergeFileInfs(CmmVO vo, ModelMap model,
 			MultipartHttpServletRequest request);
 
+	void code(CmmVO vo, ModelMap model);
+
 }

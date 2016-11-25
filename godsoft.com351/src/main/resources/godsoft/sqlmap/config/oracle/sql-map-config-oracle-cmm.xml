@@ -17,4 +17,7 @@
 	<!-- 메뉴 -->
 	<sqlMap resource="godsoft/sqlmap/com/cmm/Menu_SQL_Oracle.xml" />
 
+	<!-- 공통상세코드 -->
+	<sqlMap resource="godsoft/sqlmap/com/crud/CmmnDetailCode_SQL_Oracle.xml" />
+
 </sqlMapConfig>

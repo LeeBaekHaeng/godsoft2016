@@ -18,6 +18,8 @@ select
     , 'vo.set' || initcap(lower(substr(replace(initcap(ALL_TAB_COLS.COLUMN_NAME), '_'), 1, 1))) || substr(replace(initcap(ALL_TAB_COLS.COLUMN_NAME), '_'), 2) || '(' || decode(ALL_TAB_COLS.DATA_TYPE, 'NUMBER', '0', '"' || ALL_COL_COMMENTS.COMMENTS || '"') || '); // ' || ALL_COL_COMMENTS.COMMENTS as INSERT1_SET
     /* select */
     , '    , ' || ALL_TAB_COLS.TABLE_NAME || '.' || ALL_TAB_COLS.COLUMN_NAME || ' /* ' || ALL_TAB_COMMENTS.COMMENTS || '.' || ALL_COL_COMMENTS.COMMENTS || ' */' as select1
+/* sqlMap */
+    , '<result property="' || lower(substr(replace(initcap(ALL_TAB_COLS.COLUMN_NAME), '_'), 1, 1)) || substr(replace(initcap(ALL_TAB_COLS.COLUMN_NAME), '_'), 2) || '" column="' || ALL_TAB_COLS.COLUMN_NAME || '" />' as resultMap
 from ALL_TAB_COLS
 left outer join ALL_TAB_COMMENTS on ALL_TAB_COMMENTS.OWNER = ALL_TAB_COLS.OWNER and ALL_TAB_COMMENTS.TABLE_NAME = ALL_TAB_COLS.TABLE_NAME
 left outer join ALL_COL_COMMENTS on ALL_COL_COMMENTS.OWNER = ALL_TAB_COLS.OWNER and ALL_COL_COMMENTS.TABLE_NAME = ALL_TAB_COLS.TABLE_NAME and ALL_COL_COMMENTS.COLUMN_NAME = ALL_TAB_COLS.COLUMN_NAME
@@ -45,8 +47,13 @@ select
     , COMTCCMMNDETAILCODE.LAST_UPDUSR_ID /* 공통상세코드.최종수정자ID */
 from COMTCCMMNDETAILCODE /* 공통상세코드 */
 where 1 = 1
-    and COMTCCMMNDETAILCODE.CODE_ID = 'COM001' /* 공통상세코드.코드ID */
+    and COMTCCMMNDETAILCODE.USE_AT = 'Y' /* 공통상세코드.사용여부 */
+--    and COMTCCMMNDETAILCODE.CODE_ID = 'COM001' /* 공통상세코드.코드ID */
 --    and COMTCCMMNDETAILCODE.FRST_REGISTER_ID = 'SYSTEM2' /* 공통상세코드.최초등록자ID */
+--    and COMTCCMMNDETAILCODE.CODE_ID in (
+--        'COM001'
+--        , 'COM002'
+--    ) /* 공통상세코드.코드ID */
 order by
     COMTCCMMNDETAILCODE.CODE_ID /* 공통상세코드.코드ID */
     , COMTCCMMNDETAILCODE.CODE /* 공통상세코드.코드 */
@@ -92,3 +99,15 @@ where 1 = 1
 
 insert into COMTCCMMNDETAILCODE (CODE_ID, CODE, CODE_NM, CODE_DC, USE_AT, FRST_REGIST_PNTTM)
 values ('GOD001', '01', '구분코드', '구분코드', 'Y', sysdate);
+
+select
+    COMTCCMMNDETAILCODE.CODE_ID /* 공통상세코드.코드ID */
+    , count(*) as CNT
+from COMTCCMMNDETAILCODE /* 공통상세코드 */
+where 1 = 1
+    and COMTCCMMNDETAILCODE.USE_AT = 'Y' /* 공통상세코드.사용여부 */
+group by
+    COMTCCMMNDETAILCODE.CODE_ID /* 공통상세코드.코드ID */
+order by
+    COMTCCMMNDETAILCODE.CODE_ID /* 공통상세코드.코드ID */
+;

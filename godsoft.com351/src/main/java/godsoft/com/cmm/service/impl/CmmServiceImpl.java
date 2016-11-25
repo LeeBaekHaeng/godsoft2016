@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import egovframework.com.cmm.ComDefaultVO;
 import egovframework.com.cmm.EgovMessageSource;
+import egovframework.com.cmm.service.CmmnDetailCode;
 import egovframework.com.cmm.service.EgovFileMngService;
 import egovframework.com.cmm.service.EgovFileMngUtil;
 import egovframework.com.sym.mnu.mpm.service.MenuManage;
@@ -22,6 +23,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import godsoft.com.cmm.service.CmmService;
 import godsoft.com.cmm.service.CmmVO;
+import godsoft.com.crud.service.CmmnDetailCodeService;
 
 @Service
 public class CmmServiceImpl extends EgovAbstractServiceImpl implements
@@ -49,6 +51,9 @@ public class CmmServiceImpl extends EgovAbstractServiceImpl implements
 
 	@Autowired
 	private GodMenuServiceImpl godMenuServiceImpl;
+
+	@Autowired
+	private CmmnDetailCodeService cmmnDetailCodeService;
 
 	@Override
 	public String mergeFileInfs(String atchFileId, String KeyStr,
@@ -113,6 +118,17 @@ public class CmmServiceImpl extends EgovAbstractServiceImpl implements
 		}
 
 		model.addAttribute("atchFileId", atchFileId);
+	}
+
+	@Override
+	public void code(CmmVO vo, ModelMap model) {
+		CmmnDetailCode cmmnDetailCode = new CmmnDetailCode();
+
+		// vo.setCodeId("test");
+
+		// ModelMap model = new ModelMap();
+
+		cmmnDetailCodeService.code(cmmnDetailCode, model);
 	}
 
 }

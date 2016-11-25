@@ -50,6 +50,7 @@ import egovframework.com.cmm.annotation.IncludedInfo;
 import egovframework.com.cmm.util.EgovUserDetailsHelper;
 import egovframework.com.sym.mnu.mpm.service.MenuManageVO;
 import godsoft.com.cmm.service.CmmService;
+import godsoft.com.cmm.service.CmmVO;
 import godsoft.com.cmm.service.GodGlobals;
 
 @Controller
@@ -89,6 +90,20 @@ public class EgovComIndexController implements ApplicationContextAware,
 		vo.setAuthorCode("ROLE_USER");
 		vo.setMenuNo(0);
 		servletContext.setAttribute("ROLE_USER", cmmService.selectMenuList(vo));
+
+		setApplicationContextA1(applicationContext);
+	}
+
+	public void setApplicationContextA1(ApplicationContext applicationContext)
+			throws BeansException {
+		CmmVO vo = new CmmVO();
+
+		ModelMap model = new ModelMap();
+
+		cmmService.code(vo, model);
+
+		servletContext.setAttribute("cmmnDetailCodeMap",
+				model.get("cmmnDetailCodeMap"));
 	}
 
 	@RequestMapping("/index.do")

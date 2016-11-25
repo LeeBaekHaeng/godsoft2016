@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="/WEB-INF/jsp/godsoft/com/cmm/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -23,6 +23,16 @@
     <![endif]-->
 </head>
 <body>
+
+	<form:select path="sub0101VO.codeId">
+		<form:options items="${cmmnDetailCodeMap.COM001}" itemLabel="codeNm"
+			itemValue="code" />
+	</form:select>
+
+	<form:select path="sub0101VO.codeId">
+		<form:options items="${cmmnDetailCodeMap.COM076}" itemLabel="codeNm"
+			itemValue="code" />
+	</form:select>
 
 	<ol>
 		<c:forEach items="${ROLE_USER}" var="item">
