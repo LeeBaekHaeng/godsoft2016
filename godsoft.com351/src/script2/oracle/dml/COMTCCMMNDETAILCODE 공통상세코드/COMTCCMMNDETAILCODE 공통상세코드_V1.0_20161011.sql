@@ -111,3 +111,8 @@ group by
 order by
     COMTCCMMNDETAILCODE.CODE_ID /* 공통상세코드.코드ID */
 ;
+
+delete from COMTCCMMNDETAILCODE /* 공통상세코드 */
+where 1 = 1
+    and FRST_REGISTER_ID = 'SYSTEM2'
+;
