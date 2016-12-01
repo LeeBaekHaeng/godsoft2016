@@ -5,6 +5,8 @@ import godsoft.com.cmm.service.CmmVO;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -29,6 +31,12 @@ public class CmmController {
 	public String mergeFileInfs(CmmVO vo, ModelMap model,
 			MultipartHttpServletRequest request) {
 		cmmService.mergeFileInfs(vo, model, request);
+		return "jsonView";
+	}
+
+	@RequestMapping("/cmm/test.do")
+	public String test(CmmVO vo, ModelMap model, HttpServletRequest request) {
+		model.addAttribute("scheme", request.getScheme());
 		return "jsonView";
 	}
 

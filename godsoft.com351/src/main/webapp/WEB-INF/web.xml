@@ -167,4 +167,8 @@
 		<param-value>/web</param-value>
 	</context-param>
 
+	<listener>
+		<listener-class>godsoft.com.listener.GodServletContextListener</listener-class>
+	</listener>
+
 </web-app>
