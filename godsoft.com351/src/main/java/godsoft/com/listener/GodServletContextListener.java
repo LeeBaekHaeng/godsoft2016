@@ -49,6 +49,10 @@ public class GodServletContextListener implements ServletContextListener {
 		// } catch (Exception e) {
 		// egovLogger.error(e.getMessage());
 		// }
+
+		// Sub0101Service sub0101Service = webApplicationContext
+		// .getBean(Sub0101Service.class);
+		// sc.setAttribute("godScheme", sub0101Service.getScheme());
 	}
 
 	private void test() throws Exception {

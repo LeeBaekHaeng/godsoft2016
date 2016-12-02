@@ -22,7 +22,8 @@ public class Sub0101Controller {
 	private Sub0101Service sub0101Service;
 
 	@RequestMapping("/sub/selectSub0101List.do")
-	public String selectList(Sub0101VO vo, ModelMap model) throws Exception {
+	public String selectList(Sub0101VO vo, ModelMap model) {
+		sub0101Service.selectList(vo, model);
 		return "godsoft/com/sub/selectSub0101List";
 	}
 

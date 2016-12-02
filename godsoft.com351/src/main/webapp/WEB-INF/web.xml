@@ -171,4 +171,8 @@
 		<listener-class>godsoft.com.listener.GodServletContextListener</listener-class>
 	</listener>
 
+	<listener>
+		<listener-class>godsoft.com.listener.GodRequestContextListener</listener-class>
+	</listener>
+
 </web-app>

@@ -1,8 +1,12 @@
 package godsoft.com.sub.service.impl;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -18,7 +22,8 @@ public class Sub0101ServiceImpl extends EgovAbstractServiceImpl implements
 	private CmmServiceImpl godCmmServiceImpl;
 
 	@Override
-	public void selectList(Sub0101VO vo, ModelMap model) throws Exception {
+	public void selectList(Sub0101VO vo, ModelMap model) {
+		// model.addAttribute("godScheme", getScheme());
 	}
 
 	@Override
@@ -37,6 +42,16 @@ public class Sub0101ServiceImpl extends EgovAbstractServiceImpl implements
 				storePath, request);
 
 		egovLogger.debug("atchFileId=" + atchFileId);
+	}
+
+	@Override
+	public String getScheme() {
+		ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder
+				.currentRequestAttributes();
+
+		HttpServletRequest request = servletRequestAttributes.getRequest();
+
+		return request.getScheme();
 	}
 
 }

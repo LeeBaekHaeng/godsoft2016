@@ -23,6 +23,8 @@
     <![endif]-->
 </head>
 <body>
+	<c:out value="${schemeServerNameServerPortContextPath}"></c:out>
+	<c:out value="${godScheme}"></c:out>
 
 	<form:select path="sub0101VO.codeId">
 		<form:options items="${cmmnDetailCodeMap.COM001}" itemLabel="codeNm"

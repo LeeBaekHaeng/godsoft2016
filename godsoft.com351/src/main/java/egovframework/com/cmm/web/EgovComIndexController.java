@@ -92,6 +92,10 @@ public class EgovComIndexController implements ApplicationContextAware,
 		servletContext.setAttribute("ROLE_USER", cmmService.selectMenuList(vo));
 
 		setApplicationContextA1(applicationContext);
+
+		// Sub0101Service sub0101Service = applicationContext
+		// .getBean(Sub0101Service.class);
+		// servletContext.setAttribute("godScheme", sub0101Service.getScheme());
 	}
 
 	public void setApplicationContextA1(ApplicationContext applicationContext)

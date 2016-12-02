@@ -85,4 +85,17 @@ public class GodUtils {
 				.replaceAll("&apos;", "'");
 	}
 
+	public static String getSchemeServerNameServerPortContextPath(
+			HttpServletRequest request) {
+		StringBuffer sb = new StringBuffer();
+		sb.append(request.getScheme());
+		sb.append("://");
+		sb.append(request.getServerName());
+		sb.append(":");
+		sb.append(request.getServerPort());
+		sb.append(request.getContextPath());
+
+		return sb.toString();
+	}
+
 }
