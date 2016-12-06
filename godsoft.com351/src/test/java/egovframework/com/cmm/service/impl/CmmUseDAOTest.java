@@ -59,7 +59,7 @@ public class CmmUseDAOTest {
 		}
 	}
 
-	@Test
+	// @Test
 	public void test2() {
 		ComDefaultCodeVO vo = new ComDefaultCodeVO();
 
@@ -72,6 +72,32 @@ public class CmmUseDAOTest {
 
 		try {
 			items = cmmUseDAO.selectOgrnztIdDetail(vo);
+		} catch (Exception e) {
+			logger.error(e);
+		}
+
+		for (CmmnDetailCode item : items) {
+			logger.debug("item=" + item);
+			logger.debug("getCodeId=" + item.getCodeId());
+			logger.debug("getCode=" + item.getCode());
+			logger.debug("getCodeNm=" + item.getCodeNm());
+			logger.debug("getCodeDc=" + item.getCodeDc());
+		}
+	}
+
+	@Test
+	public void test3() {
+		ComDefaultCodeVO vo = new ComDefaultCodeVO();
+
+		vo.setTableNm("GROUP_00000000000000");
+
+		// vo.setHaveDetailCondition("Y");
+		// vo.setDetailCondition("GROUP_00000000000000");
+
+		List<CmmnDetailCode> items = null;
+
+		try {
+			items = cmmUseDAO.selectGroupIdDetail(vo);
 		} catch (Exception e) {
 			logger.error(e);
 		}
