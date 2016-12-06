@@ -11,6 +11,7 @@ order by
 ;
 
 select
+/*+ index_desc(COMTHEMAILDSPTCHMANAGE COMTHEMAILDSPTCHMANAGE_I01) */
     ROWNUM as RN
     , COMTHEMAILDSPTCHMANAGE.MSSAGE_ID /* 메일발신관리.메시지ID */
     , COMTHEMAILDSPTCHMANAGE.EMAIL_CN /* 메일발신관리.이메일내용 */

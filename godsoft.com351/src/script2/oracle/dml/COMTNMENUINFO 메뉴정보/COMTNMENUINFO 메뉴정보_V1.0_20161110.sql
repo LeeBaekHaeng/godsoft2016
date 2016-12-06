@@ -62,3 +62,24 @@ connect by nocycle prior COMTNMENUINFO.MENU_NO = COMTNMENUINFO.UPPER_MENU_NO /* 
 order siblings by
     COMTNMENUINFO.MENU_ORDR /* 메뉴정보.메뉴순서 */
 ;
+
+insert into COMTNMENUINFO (
+    MENU_NM /* 메뉴정보.메뉴명 */
+    , PROGRM_FILE_NM /* 메뉴정보.프로그램파일명 */
+    , MENU_NO /* 메뉴정보.메뉴번호 */
+    , UPPER_MENU_NO /* 메뉴정보.상위메뉴번호 */
+    , MENU_ORDR /* 메뉴정보.메뉴순서 */
+    , MENU_DC /* 메뉴정보.메뉴설명 */
+    , RELATE_IMAGE_PATH /* 메뉴정보.관계이미지경로 */
+    , RELATE_IMAGE_NM /* 메뉴정보.관계이미지명 */
+) values (
+    '' /* 메뉴정보.메뉴명 */
+    , '' /* 메뉴정보.프로그램파일명 */
+    , 0 /* 메뉴정보.메뉴번호 */
+    , 0 /* 메뉴정보.상위메뉴번호 */
+    , 0 /* 메뉴정보.메뉴순서 */
+    , '' /* 메뉴정보.메뉴설명 */
+    , '' /* 메뉴정보.관계이미지경로 */
+    , '' /* 메뉴정보.관계이미지명 */
+)
+;
