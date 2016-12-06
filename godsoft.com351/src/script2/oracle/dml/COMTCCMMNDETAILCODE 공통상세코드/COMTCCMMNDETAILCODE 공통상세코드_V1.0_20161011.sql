@@ -116,3 +116,23 @@ delete from COMTCCMMNDETAILCODE /* 공통상세코드 */
 where 1 = 1
     and FRST_REGISTER_ID = 'SYSTEM2'
 ;
+
+select
+/*+ index(CMMN_DETAIL_CODE COMTCCMMNDETAILCODE_PK) */
+    rownum as RN
+    , CMMN_DETAIL_CODE.CODE_ID /* 공통상세코드.코드ID */
+    , CMMN_DETAIL_CODE.CODE /* 공통상세코드.코드 */
+    , CMMN_DETAIL_CODE.CODE_NM /* 공통상세코드.코드명 */
+    , CMMN_DETAIL_CODE.CODE_DC /* 공통상세코드.코드설명 */
+    , CMMN_DETAIL_CODE.USE_AT /* 공통상세코드.사용여부 */
+    , CMMN_DETAIL_CODE.FRST_REGIST_PNTTM /* 공통상세코드.최초등록시점 */
+    , CMMN_DETAIL_CODE.FRST_REGISTER_ID /* 공통상세코드.최초등록자ID */
+    , CMMN_DETAIL_CODE.LAST_UPDT_PNTTM /* 공통상세코드.최종수정시점 */
+    , CMMN_DETAIL_CODE.LAST_UPDUSR_ID /* 공통상세코드.최종수정자ID */
+from COMTCCMMNDETAILCODE CMMN_DETAIL_CODE /* 공통상세코드 */
+where 1 = 1
+    and CMMN_DETAIL_CODE.USE_AT = 'Y' /* 공통상세코드.사용여부 */
+order by
+    CMMN_DETAIL_CODE.CODE_ID /* 공통상세코드.코드ID */
+    , CMMN_DETAIL_CODE.CODE_DC /* 공통상세코드.코드설명 */
+;

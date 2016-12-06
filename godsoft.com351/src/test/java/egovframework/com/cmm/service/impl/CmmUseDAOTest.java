@@ -28,7 +28,7 @@ public class CmmUseDAOTest {
 	// @Resource(name = "cmmUseDAO")
 	private CmmUseDAO cmmUseDAO;
 
-	@Test
+	// @Test
 	public void test() {
 		ComDefaultCodeVO vo = new ComDefaultCodeVO();
 
@@ -56,6 +56,32 @@ public class CmmUseDAOTest {
 			logger.debug("getUseAt=" + item.getUseAt());
 			logger.debug("getFrstRegisterId=" + item.getFrstRegisterId());
 			logger.debug("getLastUpdusrId=" + item.getLastUpdusrId());
+		}
+	}
+
+	@Test
+	public void test2() {
+		ComDefaultCodeVO vo = new ComDefaultCodeVO();
+
+		vo.setTableNm("ORGNZT_0000000000000");
+
+		// vo.setHaveDetailCondition("Y");
+		// vo.setDetailCondition("ORGNZT_0000000000000");
+
+		List<CmmnDetailCode> items = null;
+
+		try {
+			items = cmmUseDAO.selectOgrnztIdDetail(vo);
+		} catch (Exception e) {
+			logger.error(e);
+		}
+
+		for (CmmnDetailCode item : items) {
+			logger.debug("item=" + item);
+			logger.debug("getCodeId=" + item.getCodeId());
+			logger.debug("getCode=" + item.getCode());
+			logger.debug("getCodeNm=" + item.getCodeNm());
+			logger.debug("getCodeDc=" + item.getCodeDc());
 		}
 	}
 
