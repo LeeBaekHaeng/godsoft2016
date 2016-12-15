@@ -212,7 +212,8 @@ public class EgovBBSManageController {
 		model.addAttribute("brdMstrVO", master);
 		model.addAttribute("paginationInfo", paginationInfo);
 
-		return "egovframework/com/cop/bbs/EgovNoticeList";
+		// return "egovframework/com/cop/bbs/EgovNoticeList";
+		return getTpl(boardVO, model, master, "EgovNoticeList");
 	}
 
 	/**
@@ -1756,4 +1757,18 @@ public class EgovBBSManageController {
 
 		return "egovframework/com/cop/bbs/EgovNoticeList";
 	}
+
+	private String getTpl(BoardVO boardVO, ModelMap model,
+			BoardMasterVO master, String filename) {
+		String tpl;
+
+		if ("TMPLAT_BOARD_DEFAULT".equals(master.getTmplatId())) {
+			tpl = "egovframework/com/cop/bbs/" + filename;
+		} else {
+			tpl = master.getTmplatCours() + filename;
+		}
+
+		return tpl;
+	}
+
 }
