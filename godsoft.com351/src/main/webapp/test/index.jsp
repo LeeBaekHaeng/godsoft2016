@@ -12,10 +12,15 @@
 		<li></li>
 	</ul>
 
+	<ul id="godsoft-com-test-ul2">
+		<li></li>
+	</ul>
 
-	<script type="text/javascript" src="../js/egovframework/com/cmm/jquery-1.4.2.min.js"></script>
-	
+	<script type="text/javascript"
+		src="../js/egovframework/com/cmm/jquery-1.4.2.min.js"></script>
+
 	<script type="text/javascript" src="test.js"></script>
+	<script type="text/javascript" src="test2.js"></script>
 
 </body>
 </html>

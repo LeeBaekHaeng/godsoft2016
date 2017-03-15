@@ -186,6 +186,8 @@ var godsoft = {
 				html += 'Date.prototype.valueOf(): ' + varDate.valueOf();
 				html += '</li>';
 
+				$('#godsoft-com-test-ul').empty();
+
 				$('#godsoft-com-test-ul').html(html);
 
 			}
@@ -196,4 +198,4 @@ var godsoft = {
 
 };
 
-godsoft.com.test.Date();
+// godsoft.com.test.Date();
