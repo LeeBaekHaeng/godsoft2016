@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html2canvas</title>
+</head>
+<body>
+
+	<div id="div1">
+		<h1>서명</h1>
+		<img src="http://www.kccosd.org/files/testing_image.jpg">
+	</div>
+
+	<div id="div2"></div>
+
+	<script type="text/javascript" src="html2canvas.js"></script>
+
+	<script type="text/javascript">
+		// 		html2canvas(document.getElementById('div1'), {
+		// 			onrendered : function(canvas) {
+		// 				document.getElementById('div2').append(canvas);
+		// 			}
+		// 		});
+
+		if (typeof FlashCanvas != "undefined") {
+			FlashCanvas.initElement(canvas);
+		}
+
+		html2canvas(document.getElementById('div1'), {
+			onrendered : function(canvas) {
+				document.getElementById('div2').append(canvas);
+				document.getElementById('div2').innerHTML = '<img src="'
+						+ canvas.toDataURL() + '">';
+
+				console.log(canvas.toDataURL());
+			},
+			allowTaint : true,
+			taintTest : false,
+			useCORS : false,
+		// 			width : 300,
+		// 			height : 300
+		});
+	</script>
+
+</body>
+</html>

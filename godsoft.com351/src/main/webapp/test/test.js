@@ -144,10 +144,8 @@ var godsoft = {
 
 				var options = {
 					year : 'numeric',
-					// month : 'numeric',
-					month : '2-digit',
-					// day : 'numeric',
-					day : '2-digit',
+					month : 'numeric',
+					day : 'numeric',
 					hour : 'numeric',
 					minute : 'numeric',
 					second : 'numeric',
@@ -186,8 +184,6 @@ var godsoft = {
 				html += 'Date.prototype.valueOf(): ' + varDate.valueOf();
 				html += '</li>';
 
-				$('#godsoft-com-test-ul').empty();
-
 				$('#godsoft-com-test-ul').html(html);
 
 			}
@@ -198,4 +194,4 @@ var godsoft = {
 
 };
 
-// godsoft.com.test.Date();
+godsoft.com.test.Date();
