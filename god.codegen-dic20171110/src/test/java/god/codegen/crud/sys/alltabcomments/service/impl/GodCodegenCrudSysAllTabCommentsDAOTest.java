@@ -71,19 +71,22 @@ public class GodCodegenCrudSysAllTabCommentsDAOTest extends GodAbstractDAOTest {
 		createWorkbook(results);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void createWorkbook(List<EgovMap> results) throws Exception {
-		String templateName = "";
+		// String templateName = "";
 		// Workbook wb = egovExcelService.loadExcelTemplate(templateName);
 
 		Workbook wb = new HSSFWorkbook();
-		Sheet sheet = wb.createSheet("new sheet");
+		Sheet sheet = wb.createSheet("Sheet1");
 
-		int rownum = 0;
+		header(sheet);
+
+		int rownum = 1;
 
 		for (EgovMap result : results) {
 			Row row = sheet.createRow(rownum);
 
-			@SuppressWarnings("unchecked")
+			// @SuppressWarnings("unchecked")
 			List<String> keyList = result.keyList();
 
 			int column = 0;
@@ -101,8 +104,32 @@ public class GodCodegenCrudSysAllTabCommentsDAOTest extends GodAbstractDAOTest {
 			rownum++;
 		}
 
-		String filepath = SystemUtils.USER_HOME + "/Desktop/test.xls";
+		String filepath = SystemUtils.USER_HOME + "/Desktop/ALL_TAB_COMMENTS "
+				+ EgovDateUtil.toString(new Date(), "yyyy-MM-dd HH-mm-ss", null) + ".xls";
 		wb = egovExcelService.createWorkbook(wb, filepath);
+	}
+
+	public void header(Sheet sheet) {
+		int rownum = 0;
+
+		Row row = sheet.createRow(rownum);
+
+		int column = 0;
+
+		Cell cell = row.createCell(column++);
+		cell.setCellValue("OWNER");
+
+		cell = row.createCell(column++);
+		cell.setCellValue("TABLE_NAME");
+
+		cell = row.createCell(column++);
+		cell.setCellValue("TABLE_TYPE");
+
+		cell = row.createCell(column++);
+		cell.setCellValue("COMMENTS");
+
+		cell = row.createCell(column++);
+		cell.setCellValue("ORIGIN_CON_ID");
 	}
 
 }
