@@ -1,4 +1,4 @@
-package god.codegen.crud.sys.alltabcomments.service.impl;
+package god.codegen.crud.sys.alltables.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,13 +19,13 @@ import egovframework.rte.fdl.excel.EgovExcelService;
 import egovframework.rte.fdl.excel.impl.EgovExcelServiceImpl;
 import egovframework.rte.fdl.string.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import god.codegen.crud.sys.alltabcomments.service.AllTabCommentsVO;
+import god.codegen.crud.sys.alltables.service.AllTablesVO;
 import god.test.GodAbstractDAOTest;
 
-public class GodCodegenCrudSysAllTabCommentsDAOTest extends GodAbstractDAOTest {
+public class GodCodegenCrudSysAllTablesDAOTest extends GodAbstractDAOTest {
 
 	@Autowired
-	private GodCodegenCrudSysAllTabCommentsDAO dao;
+	private GodCodegenCrudSysAllTablesDAO dao;
 
 	// @Autowired
 	// @Qualifier("excelZipService")
@@ -48,19 +48,17 @@ public class GodCodegenCrudSysAllTabCommentsDAOTest extends GodAbstractDAOTest {
 	public void selectList() throws Exception {
 		logger.debug("EgovDateUtil.toString: " + EgovDateUtil.toString(new Date(), "", null));
 
-		AllTabCommentsVO vo = new AllTabCommentsVO();
-		vo.setOwner("SYS");
-		vo.setTableName("ALL_TAB_COMMENTS");
-		// vo.setTableName("ALL_TAB_COLS");
+		AllTablesVO vo = new AllTablesVO();
 
 		List<String> owners = new ArrayList<String>();
-		owners.add("SYS");
-		// vo.setOwners(owners);
+		owners.add("TEST");
+		vo.setOwners(owners);
 
 		List<String> tableNames = new ArrayList<String>();
-		tableNames.add("ALL_TAB_COMMENTS");
-		tableNames.add("ALL_TAB_COLS");
-		// vo.setTableNames(tableNames);
+		tableNames.add("COMTCCMMNCLCODE");
+		tableNames.add("COMTCCMMNCODE");
+		tableNames.add("COMTCCMMNDETAILCODE");
+		vo.setTableNames(tableNames);
 
 		List<EgovMap> results = dao.selectList(vo);
 
@@ -104,7 +102,7 @@ public class GodCodegenCrudSysAllTabCommentsDAOTest extends GodAbstractDAOTest {
 			rownum++;
 		}
 
-		String filepath = SystemUtils.USER_HOME + "/Desktop/god.codegen/ALL_TAB_COMMENTS "
+		String filepath = SystemUtils.USER_HOME + "/Desktop/god.codegen/ALL_TABLES "
 				+ EgovDateUtil.toString(new Date(), "yyyy-MM-dd HH-mm-ss", null) + ".xls";
 		wb = egovExcelService.createWorkbook(wb, filepath);
 	}

@@ -3,73 +3,47 @@
 
 <sqlMap namespace="GodCodegenCrudSysAllTabCommentsDAO">
 
-	<sql id="GodCodegenCrudSysAllTabCommentsDAO.selectList.sql">
+	<sql id="GodCodegenCrudSysAllTabCommentsDAO.selectList.where.sql">
 <![CDATA[
-select
-    ALL_TAB_COLS.OWNER
-    , ALL_TAB_COLS.TABLE_NAME
-    , ALL_TAB_COLS.COLUMN_NAME
-    , ALL_TAB_COLS.DATA_TYPE
-    , ALL_TAB_COLS.DATA_TYPE_MOD
-    , ALL_TAB_COLS.DATA_TYPE_OWNER
-    , ALL_TAB_COLS.DATA_LENGTH
-    , ALL_TAB_COLS.DATA_PRECISION
-    , ALL_TAB_COLS.DATA_SCALE
-    , ALL_TAB_COLS.NULLABLE
-    , ALL_TAB_COLS.COLUMN_ID
-    , ALL_TAB_COLS.DEFAULT_LENGTH
-    , ALL_TAB_COLS.DATA_DEFAULT
-    , ALL_TAB_COLS.NUM_DISTINCT
-    , ALL_TAB_COLS.LOW_VALUE
-    , ALL_TAB_COLS.HIGH_VALUE
-    , ALL_TAB_COLS.DENSITY
-    , ALL_TAB_COLS.NUM_NULLS
-    , ALL_TAB_COLS.NUM_BUCKETS
-    , ALL_TAB_COLS.LAST_ANALYZED
-    , ALL_TAB_COLS.SAMPLE_SIZE
-    , ALL_TAB_COLS.CHARACTER_SET_NAME
-    , ALL_TAB_COLS.CHAR_COL_DECL_LENGTH
-    , ALL_TAB_COLS.GLOBAL_STATS
-    , ALL_TAB_COLS.USER_STATS
-    , ALL_TAB_COLS.AVG_COL_LEN
-    , ALL_TAB_COLS.CHAR_LENGTH
-    , ALL_TAB_COLS.CHAR_USED
-    , ALL_TAB_COLS.V80_FMT_IMAGE
-    , ALL_TAB_COLS.DATA_UPGRADED
-    , ALL_TAB_COLS.HIDDEN_COLUMN
-    , ALL_TAB_COLS.VIRTUAL_COLUMN
-    , ALL_TAB_COLS.SEGMENT_COLUMN_ID
-    , ALL_TAB_COLS.INTERNAL_COLUMN_ID
-    , ALL_TAB_COLS.HISTOGRAM
-    , ALL_TAB_COLS.QUALIFIED_COL_NAME
-from SYS.ALL_TAB_COLS /* 테이블컬럼 */
 where 1 = 1
 ]]>
 		<isNotEmpty property="owner">
 <![CDATA[
-    and ALL_TAB_COLS.OWNER = #owner#
+    and OWNER = #owner#
 ]]>
 		</isNotEmpty>
 		<isNotEmpty property="owners">
-			<iterate property="owners" open="and ALL_TAB_COLS.OWNER in ("
-				conjunction="," close=")">
+			<iterate property="owners" open="and OWNER in (" conjunction=","
+				close=")">
 				#owners[]#
 			</iterate>
 		</isNotEmpty>
 		<isNotEmpty property="tableName">
 <![CDATA[
-    and ALL_TAB_COLS.TABLE_NAME = #tableName#
+    and TABLE_NAME = #tableName#
 ]]>
 		</isNotEmpty>
 		<isNotEmpty property="tableNames">
-			<iterate property="tableNames" open="and ALL_TAB_COLS.TABLE_NAME in ("
+			<iterate property="tableNames" open="and TABLE_NAME in ("
 				conjunction="," close=")">
 				#tableNames[]#
 			</iterate>
 		</isNotEmpty>
+	</sql>
+
+	<sql id="GodCodegenCrudSysAllTabCommentsDAO.selectList.sql">
+<![CDATA[
+select
+    OWNER
+    , TABLE_NAME
+    , TABLE_TYPE
+    , COMMENTS
+from SYS.ALL_TAB_COMMENTS
+]]>
+		<include refid="GodCodegenCrudSysAllTabCommentsDAO.selectList.where.sql" />
 <![CDATA[
 order by
-    ALL_TAB_COLS.OWNER, ALL_TAB_COLS.TABLE_NAME, ALL_TAB_COLS.COLUMN_ID
+    OWNER, TABLE_NAME
 ]]>
 	</sql>
 
