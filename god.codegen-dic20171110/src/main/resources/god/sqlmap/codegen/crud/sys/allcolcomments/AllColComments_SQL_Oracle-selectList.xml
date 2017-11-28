@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="GodCodegenCrudSysAllColCommentsDAO">
+
+	<sql id="GodCodegenCrudSysAllColCommentsDAO.selectList.sql">
+<![CDATA[
+select
+    T1.OWNER
+    , T1.TABLE_NAME
+    , T1.COLUMN_NAME
+    , T1.COMMENTS
+from SYS.ALL_COL_COMMENTS T1
+left outer join SYS.ALL_TAB_COLS T2 on T2.OWNER = T1.OWNER and T2.TABLE_NAME = T1.TABLE_NAME and T2.COLUMN_NAME = T1.COLUMN_NAME
+]]>
+		<include refid="GodCodegenCrudSysAllTabCommentsDAO.selectList.where.sql" />
+<![CDATA[
+order by
+    T1.OWNER
+    , T1.TABLE_NAME
+    , T2.COLUMN_ID
+]]>
+	</sql>
+
+	<select id="GodCodegenCrudSysAllColCommentsDAO.selectList"
+		parameterClass="god.codegen.crud.sys.allcolcomments.service.AllColCommentsVO"
+		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
+		<include refid="GodCodegenCrudSysAllColCommentsDAO.selectList.sql" />
+	</select>
+
+	<select id="GodCodegenCrudSysAllColCommentsDAO.selectList.test"
+		parameterClass="god.codegen.crud.sys.allcolcomments.service.AllColCommentsVO"
+		resultClass="hashmap">
+		<include refid="GodCodegenCrudSysAllColCommentsDAO.selectList.sql" />
+	</select>
+
+</sqlMap>

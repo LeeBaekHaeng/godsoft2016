@@ -1,4 +1,4 @@
-package god.codegen.crud.sys.alltabcomments.service.impl;
+package god.codegen.crud.sys.allcolcomments.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,13 +19,13 @@ import egovframework.rte.fdl.excel.EgovExcelService;
 import egovframework.rte.fdl.excel.impl.EgovExcelServiceImpl;
 import egovframework.rte.fdl.string.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import god.codegen.crud.sys.alltabcomments.service.AllTabCommentsVO;
+import god.codegen.crud.sys.allcolcomments.service.AllColCommentsVO;
 import god.test.GodAbstractDAOTest;
 
-public class GodCodegenCrudSysAllTabCommentsDAOTest extends GodAbstractDAOTest {
+public class GodCodegenCrudSysAllColCommentsDAOTest extends GodAbstractDAOTest {
 
 	@Autowired
-	private GodCodegenCrudSysAllTabCommentsDAO dao;
+	private GodCodegenCrudSysAllColCommentsDAO dao;
 
 	// @Autowired
 	// @Qualifier("excelZipService")
@@ -48,19 +48,17 @@ public class GodCodegenCrudSysAllTabCommentsDAOTest extends GodAbstractDAOTest {
 	public void selectList() throws Exception {
 		logger.debug("EgovDateUtil.toString: " + EgovDateUtil.toString(new Date(), "", null));
 
-		AllTabCommentsVO vo = new AllTabCommentsVO();
-		vo.setOwner("SYS");
-		vo.setTableName("ALL_TAB_COMMENTS");
-		// vo.setTableName("ALL_TAB_COLS");
+		AllColCommentsVO vo = new AllColCommentsVO();
 
 		List<String> owners = new ArrayList<String>();
-		owners.add("SYS");
-		// vo.setOwners(owners);
+		owners.add("TEST");
+		vo.setOwners(owners);
 
 		List<String> tableNames = new ArrayList<String>();
-		tableNames.add("ALL_TAB_COMMENTS");
-		tableNames.add("ALL_TAB_COLS");
-		// vo.setTableNames(tableNames);
+		tableNames.add("COMTCCMMNCLCODE");
+		tableNames.add("COMTCCMMNCODE");
+		tableNames.add("COMTCCMMNDETAILCODE");
+		vo.setTableNames(tableNames);
 
 		List<EgovMap> results = dao.selectList(vo);
 
@@ -104,11 +102,7 @@ public class GodCodegenCrudSysAllTabCommentsDAOTest extends GodAbstractDAOTest {
 			rownum++;
 		}
 
-		for (int i = 0, lastCellNum = sheet.getRow(0).getLastCellNum(); i < lastCellNum; i++) {
-			sheet.autoSizeColumn(i);
-		}
-
-		String filepath = SystemUtils.USER_HOME + "/Desktop/god.codegen/ALL_TAB_COMMENTS "
+		String filepath = SystemUtils.USER_HOME + "/Desktop/god.codegen/ALL_COL_COMMENTS "
 				+ EgovDateUtil.toString(new Date(), "yyyy-MM-dd HH-mm-ss", null) + ".xls";
 		wb = egovExcelService.createWorkbook(wb, filepath);
 	}
@@ -127,13 +121,11 @@ public class GodCodegenCrudSysAllTabCommentsDAOTest extends GodAbstractDAOTest {
 		cell.setCellValue("TABLE_NAME");
 
 		cell = row.createCell(column++);
-		cell.setCellValue("TABLE_TYPE");
+		cell.setCellValue("COLUMN_NAME");
 
 		cell = row.createCell(column++);
 		cell.setCellValue("COMMENTS");
 
-		cell = row.createCell(column++);
-		cell.setCellValue("ORIGIN_CON_ID");
 	}
 
 }

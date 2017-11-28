@@ -9,22 +9,22 @@ where 1 = 1
 ]]>
 		<isNotEmpty property="owner">
 <![CDATA[
-    and OWNER = #owner#
+    and T1.OWNER = #owner#
 ]]>
 		</isNotEmpty>
 		<isNotEmpty property="owners">
-			<iterate property="owners" open="and OWNER in (" conjunction=","
+			<iterate property="owners" open="and T1.OWNER in (" conjunction=","
 				close=")">
 				#owners[]#
 			</iterate>
 		</isNotEmpty>
 		<isNotEmpty property="tableName">
 <![CDATA[
-    and TABLE_NAME = #tableName#
+    and T1.TABLE_NAME = #tableName#
 ]]>
 		</isNotEmpty>
 		<isNotEmpty property="tableNames">
-			<iterate property="tableNames" open="and TABLE_NAME in ("
+			<iterate property="tableNames" open="and T1.TABLE_NAME in ("
 				conjunction="," close=")">
 				#tableNames[]#
 			</iterate>
@@ -34,16 +34,17 @@ where 1 = 1
 	<sql id="GodCodegenCrudSysAllTabCommentsDAO.selectList.sql">
 <![CDATA[
 select
-    OWNER
-    , TABLE_NAME
-    , TABLE_TYPE
-    , COMMENTS
-from SYS.ALL_TAB_COMMENTS
+    T1.OWNER
+    , T1.TABLE_NAME
+    , T1.TABLE_TYPE
+    , T1.COMMENTS
+from SYS.ALL_TAB_COMMENTS T1
 ]]>
 		<include refid="GodCodegenCrudSysAllTabCommentsDAO.selectList.where.sql" />
 <![CDATA[
 order by
-    OWNER, TABLE_NAME
+    T1.OWNER
+    , T1.TABLE_NAME
 ]]>
 	</sql>
 

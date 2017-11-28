@@ -11,5 +11,7 @@
 		resource="god/sqlmap/codegen/crud/sys/alltabcols/AllTabCols_SQL_Oracle-selectList.xml" />
 	<sqlMap
 		resource="god/sqlmap/codegen/crud/sys/alltables/AllTables_SQL_Oracle-selectList.xml" />
+	<sqlMap
+		resource="god/sqlmap/codegen/crud/sys/allcolcomments/AllColComments_SQL_Oracle-selectList.xml" />
 
 </sqlMapConfig>
