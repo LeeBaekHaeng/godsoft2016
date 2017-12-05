@@ -8,4 +8,6 @@ public interface AllTabCommentsService {
 
 	List<EgovMap> selectList(AllTabCommentsVO vo) throws Exception;
 
+	void createWorkbook(AllTabCommentsVO vo) throws Exception;
+
 }

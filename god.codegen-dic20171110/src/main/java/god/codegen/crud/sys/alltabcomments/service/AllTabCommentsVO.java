@@ -15,6 +15,8 @@ public class AllTabCommentsVO extends ComDefaultVO {
 
 	private List<String> tableNames;
 
+	private String filepath;
+
 	public String getOwner() {
 		return owner;
 	}
@@ -45,6 +47,14 @@ public class AllTabCommentsVO extends ComDefaultVO {
 
 	public void setTableNames(List<String> tableNames) {
 		this.tableNames = tableNames;
+	}
+
+	public String getFilepath() {
+		return filepath;
+	}
+
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
 	}
 
 }
