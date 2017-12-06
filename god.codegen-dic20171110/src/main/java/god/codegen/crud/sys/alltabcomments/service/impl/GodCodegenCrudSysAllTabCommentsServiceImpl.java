@@ -84,7 +84,18 @@ public class GodCodegenCrudSysAllTabCommentsServiceImpl extends EgovAbstractServ
 
 		int column = 0;
 
-		Cell cell = row.createCell(column++);
+		Cell cell = null;
+
+		cell = row.createCell(column++);
+		cell.setCellValue("생성여부");
+
+		cell = row.createCell(column++);
+		cell.setCellValue("패키지명");
+
+		cell = row.createCell(column++);
+		cell.setCellValue("엔티티명");
+
+		cell = row.createCell(column++);
 		cell.setCellValue("OWNER");
 
 		cell = row.createCell(column++);
